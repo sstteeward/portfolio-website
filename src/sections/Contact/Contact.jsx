@@ -8,7 +8,7 @@ export const Contact = () => {
     <footer id="contact" className={styles.container}>
       <div className={styles.text}>
         <a className={styles.title} href="/">
-          <img src="assets\sstteward.png" alt="" />
+          <img src="sstteward.png" alt="" />
         </a>
       </div>
       <ul className={styles.links}>
