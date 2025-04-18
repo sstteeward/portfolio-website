@@ -1,0 +1,29 @@
+[
+  {
+    "role": "IT Support OJT",
+    "organisation": "Ece Contact Centers",
+    "startDate": "June 17, 2024",
+    "endDate": "July 03, 2024",
+    "experiences": ["Cleaning and Monitoring PC", "Wiring Up Ethernet Plugs"],
+    "imageSrc": "ece-contact-centers-logo-final-white_1.png"
+  },
+  {
+    "role": "Tasker",
+    "organisation": "Remotasks",
+    "startDate": "Jan 30, 2024",
+    "endDate": "Dec, 2024",
+    "experiences": ["Data Annotating"],
+    "imageSrc": "5eab5e622d63572666309a9c_remotasks-logo-full.svg"
+  },
+  {
+    "role": "A.I Trainer",
+    "organisation": "Outlier AI",
+    "startDate": "Sept, 2024",
+    "endDate": "Nov, 2024",
+    "experiences": [
+      "Guiding A.I",
+      "Correcting the A.I prompt"
+    ],
+    "imageSrc": "sS5NeWBM7nxXxiPhqPVXebxzYPE.svg"
+  }
+]

@@ -1,0 +1,26 @@
+[
+    {
+      "title": " Re-creating website in the react.js ",
+      "imageSrc": "projects/project.png",
+      "description": "This is a prelim exam laboratory activity.",
+      "skills": ["React"],
+      "demo": "https://humiwat-prelim.netlify.app/",
+      "source": "https://github.com/sstteeward/prelim"
+    },
+    {
+      "title": "Order Management System",
+      "imageSrc": "projects/project.png",
+      "description": "This is a project is made to layout the order management system.",
+      "skills": ["Figma", "Flowchart", "Wireframe"],
+      "demo": "https://www.figma.com/files/team/1424278404502563845/project/288996760?fuid=1424273155243556487",
+      "source": "https://www.figma.com/files/team/1424278404502563845/project/288996760?fuid=1424273155243556487"
+    },
+    {
+      "title": "Portfolio Website",
+      "imageSrc": "projects/project.png",
+      "description": "This is a laboratory activity.",
+      "skills": ["React", "HTML", "CSS"],
+      "demo": "https://www.example.com",
+      "source": "https://www.github.com"
+    }
+  ]
