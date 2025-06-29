@@ -20,7 +20,7 @@
       "imageSrc": "projects/project.png",
       "description": "This is a laboratory activity.",
       "skills": ["React", "HTML", "CSS"],
-      "demo": "https://www.example.com",
-      "source": "https://www.github.com"
+      "demo": "https://sstteward-portfolio.netlify.app/",
+      "source": "https://github.com/sstteeward/portfolio-website"
     }
   ]
