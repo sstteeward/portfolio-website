@@ -9,7 +9,7 @@ export const ProjectCard = ({
   return (
     <div className={styles.container}>
       <img
-        src={getImageUrl("project.png")}
+        src={getImageUrl("image.png")}
         alt={`Image of ${title}`}
         className={styles.image}
       />
