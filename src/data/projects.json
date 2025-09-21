@@ -1,7 +1,7 @@
 [
     {
       "title": " Re-creating website in the react.js ",
-      "imageSrc": "projects/project.png",
+      "imageSrc": "image.png",
       "description": "This is a prelim exam laboratory activity.",
       "skills": ["React"],
       "demo": "https://humiwat-prelim.netlify.app/",
