@@ -1,10 +1,36 @@
 [
   {
-    "role": "IT Support OJT",
+    "role": "Junior Web Developer",
+    "organisation": "Sites at Scale",
+    "startDate": "Sept, 2025",
+    "endDate": "Feb, 2026",
+    "experiences": [
+      "Hired and absorbed as a full-time Junior Web Developer",
+      "Built and maintained client websites at scale",
+      "Worked with modern web technologies and CMS platforms"
+    ],
+    "imageSrc": "sas-logo.webp"
+  },
+  {
+    "role": "Web Developer Intern",
+    "organisation": "Sites at Scale",
+    "startDate": "July, 2025",
+    "endDate": "Aug, 2025",
+    "experiences": [
+      "Completed internship as part of 2nd year school requirement",
+      "Assisted in web development tasks and client projects"
+    ],
+    "imageSrc": "sas-logo.webp"
+  },
+  {
+    "role": "IT Support Intern",
     "organisation": "Ece Contact Centers",
     "startDate": "June 17, 2024",
     "endDate": "July 03, 2024",
-    "experiences": ["Cleaning and Monitoring PC", "Wiring Up Ethernet Plugs"],
+    "experiences": [
+      "Cleaning and Monitoring PC",
+      "Wiring Up Ethernet Plugs"
+    ],
     "imageSrc": "ece-contact-centers-logo-final-white_1.png"
   },
   {
@@ -12,7 +38,9 @@
     "organisation": "Remotasks",
     "startDate": "Jan 30, 2024",
     "endDate": "Dec, 2024",
-    "experiences": ["Data Annotating"],
+    "experiences": [
+      "Data Annotating"
+    ],
     "imageSrc": "5eab5e622d63572666309a9c_remotasks-logo-full.svg"
   },
   {

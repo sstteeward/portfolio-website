@@ -1,5 +1,29 @@
 [
     {
+      "title": "SIL Monitoring System",
+      "imageSrc": "projects/project.png",
+      "description": "A full-stack student internship and laboratory (SIL) monitoring system built as my Software Engineering capstone. Tracks student progress, manages submissions, and provides dashboards for coordinators and admins.",
+      "skills": ["React", "JavaScript", "CSS", "Supabase"],
+      "demo": "https://asiancollegesilmonitoringsystem.vercel.app/",
+      "source": "https://github.com/sstteeward/monitoring-system"
+    },
+    {
+      "title": "Asian College EIS",
+      "imageSrc": "projects/project.png",
+      "description": "A functional Enrollment Information System (EIS) website built for my Web Design subject. Features student enrollment workflows and information management, built with PHP and CSS.",
+      "skills": ["PHP", "CSS", "HTML"],
+      "demo": "https://github.com/sstteeward/Asian-College-EIS",
+      "source": "https://github.com/sstteeward/Asian-College-EIS"
+    },
+    {
+      "title": "Asian College Speech Recognition Software",
+      "imageSrc": "projects/project.png",
+      "description": "A speech recognition web application built with vanilla JavaScript, HTML, and CSS. Deployed live on Vercel.",
+      "skills": ["JavaScript", "HTML", "CSS"],
+      "demo": "https://stewardhumiwat.vercel.app/",
+      "source": "https://github.com/sstteeward/stewardhumiwat"
+    },
+    {
       "title": " Re-creating website in the react.js ",
       "imageSrc": "image.png",
       "description": "This is a prelim exam laboratory activity.",
