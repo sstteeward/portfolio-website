@@ -2,7 +2,7 @@
 
 .projects {
   padding: 8rem 5%;
-  background: var(--color-bg);
+  background: transparent;
   position: relative;
 }
 
@@ -89,6 +89,12 @@
 @media (max-width: 900px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .projects {
+    padding: 4rem 5%;
   }
 }
 

@@ -3,7 +3,7 @@
 .contact {
   position: relative;
   padding: 8rem 5% 1rem;
-  background: var(--color-surface);
+  background: transparent;
   overflow: hidden;
 }
 
@@ -196,6 +196,12 @@
 .copy {
   font-size: 0.8rem;
   color: var(--color-text-subtle);
+}
+
+@media (max-width: 768px) {
+  .contact {
+    padding: 4rem 5% 1rem;
+  }
 }
 
 @media (max-width: 640px) {

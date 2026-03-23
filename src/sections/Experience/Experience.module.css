@@ -2,7 +2,7 @@
 
 .experience {
   padding: 8rem 5%;
-  background: var(--color-surface);
+  background: transparent;
   position: relative;
 }
 
@@ -260,6 +260,12 @@
   }
   .skillsGrid {
     grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .experience {
+    padding: 4rem 5%;
   }
 }
 

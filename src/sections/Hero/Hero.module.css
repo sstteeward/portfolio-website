@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: var(--color-bg);
+  background: transparent;
   padding: 0 5%;
 }
 
@@ -230,8 +230,8 @@
 
 .imageWrapper {
   position: relative;
-  width: 340px;
-  height: 340px;
+  width: 450px;
+  height: 450px;
 }
 
 .photo {
@@ -357,15 +357,18 @@
     justify-content: center;
   }
   .imageWrapper {
-    width: clamp(200px, 50vw, 260px);
-    height: clamp(200px, 50vw, 260px);
+    width: clamp(280px, 75vw, 380px);
+    height: clamp(280px, 75vw, 380px);
   }
   .floatCard1 {
-    right: -20px;
+    right: 0px;
     top: 5%;
   }
   .floatCard2 {
-    left: -20px;
+    left: 0px;
     bottom: 5%;
+  }
+  .content {
+    padding-bottom: 4rem;
   }
 }
