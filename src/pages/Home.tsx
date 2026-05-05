@@ -1,6 +1,7 @@
 import { Calendar } from 'lucide-react';
 import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
+import profileImg from '../assets/images/IMG_1471 (1).JPG';
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -32,7 +33,7 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
               animate={{ opacity: 1, scale: 1, rotate: 2 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              src="src\assets\images\IMG_1471 (1).JPG"
+              src={profileImg}
               alt="profile.jpg"
               className="w-32 h-40 sm:w-48 sm:h-64 object-cover rounded-[2rem] border border-white/10 shadow-2xl mb-2"
             />
