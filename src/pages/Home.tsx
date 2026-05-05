@@ -1,7 +1,8 @@
 import { Calendar } from 'lucide-react';
 import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
-import profileImg from '../assets/images/profile.jpg?url';
+
+const profileImg = new URL('../assets/images/profile.jpg', import.meta.url).href;
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
