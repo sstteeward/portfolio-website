@@ -24,7 +24,7 @@ export default function Home() {
           <span className="font-mono text-sm tracking-widest text-[#F27D26] uppercase">
             Portfolio
           </span>
-          <div className="mt-4 flex flex-col md:flex-row md:items-end gap-6 md:gap-8">
+          <div className="mt-4 flex flex-col md:flex-row md:items-end gap-8 md:gap-12">
             <h1 className="text-6xl font-bold tracking-tighter sm:text-8xl md:text-9xl lg:text-[10rem] leading-[0.9]">
               steward
               <br />
@@ -36,7 +36,7 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.3 }}
               src={profileImg}
               alt="profile.jpg"
-              className="w-32 h-40 sm:w-48 sm:h-64 object-cover rounded-[2rem] border border-white/10 shadow-2xl mb-2"
+              className="w-48 h-64 sm:w-64 sm:h-80 md:w-72 md:h-96 object-cover rounded-[2rem] border border-white/10 shadow-2xl"
             />
           </div>
         </motion.div>
