@@ -1,7 +1,7 @@
 import { Calendar } from 'lucide-react';
 import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
-import profileImg from '../assets/images/IMG_1471 (1).JPG';
+import profileImg from '../assets/images/profile.jpg';
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
