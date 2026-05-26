@@ -17,11 +17,17 @@ export default function Feedback() {
   const [loadingFeedbacks, setLoadingFeedbacks] = useState(true);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
+  const isConfigured = !!supabase;
+
   // Fetch existing feedbacks on mount
   useEffect(() => {
+    if (!isConfigured) {
+      setLoadingFeedbacks(false);
+      return;
+    }
     const fetchFeedbacks = async () => {
       try {
-        const { data, error } = await supabase
+        const { data, error } = await supabase!
           .from('feedback')
           .select('id, name, message, created_at')
           .order('created_at', { ascending: false });
@@ -36,17 +42,17 @@ export default function Feedback() {
     };
 
     fetchFeedbacks();
-  }, []);
+  }, [isConfigured]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!message.trim()) return;
+    if (!isConfigured || !message.trim()) return;
 
     setSubmitStatus('loading');
 
     try {
       const finalName = name.trim() || 'Anonymous';
-      const { data, error } = await supabase
+      const { data, error } = await supabase!
         .from('feedback')
         .insert([{ name: finalName, message: message.trim() }])
         .select();
@@ -109,6 +115,29 @@ export default function Feedback() {
       return 'Just now';
     }
   };
+
+  if (!isConfigured) {
+    return (
+      <section className="w-full py-16 border-t border-white/10" id="feedback-section">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="rounded-3xl border border-amber-500/20 bg-amber-500/5 p-8 text-center max-w-2xl mx-auto shadow-2xl">
+            <MessageSquare className="h-10 w-10 text-amber-500/80 mx-auto mb-4" />
+            <h3 className="text-xl font-bold text-white mb-2">Guestbook Offline</h3>
+            <p className="text-white/60 text-sm mb-4">
+              The feedback section is currently disabled because the Supabase environment variables are missing.
+            </p>
+            <div className="inline-block text-left text-xs font-mono bg-black/40 border border-white/10 rounded-xl p-4 text-white/80">
+              <p>Please define these environment variables in your deployment settings:</p>
+              <ul className="list-disc list-inside mt-2 space-y-1 text-amber-400/90">
+                <li>VITE_SUPABASE_URL</li>
+                <li>VITE_SUPABASE_ANON_KEY</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="w-full py-16 border-t border-white/10" id="feedback-section">
