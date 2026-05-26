@@ -1,48 +1,6 @@
 import { motion } from 'motion/react';
-import { ArrowRight, Mail, Linkedin, Github, Facebook, Instagram } from 'lucide-react';
-
-const CONTACT_LINKS = [
-  {
-    title: 'EMAIL',
-    value: 'stewardhumiwat@gmail.com',
-    icon: Mail,
-    href: 'mailto:stewardhumiwat@gmail.com',
-    iconColor: 'text-indigo-400',
-    iconBg: 'bg-indigo-500/10',
-  },
-  {
-    title: 'LINKEDIN',
-    value: 'Steward S. Humiwat',
-    icon: Linkedin,
-    href: 'https://linkedin.com/',
-    iconColor: 'text-blue-500',
-    iconBg: 'bg-blue-500/10',
-  },
-  {
-    title: 'GITHUB',
-    value: 'sstteeward',
-    icon: Github,
-    href: 'https://github.com/sstteeward',
-    iconColor: 'text-gray-300',
-    iconBg: 'bg-white/10',
-  },
-  {
-    title: 'FACEBOOK',
-    value: 'Steward Sarong Humiwat',
-    icon: Facebook,
-    href: 'https://facebook.com/',
-    iconColor: 'text-blue-600',
-    iconBg: 'bg-blue-600/10',
-  },
-  {
-    title: 'INSTAGRAM',
-    value: '@sho__ess',
-    icon: Instagram,
-    href: 'https://instagram.com/sho__ess',
-    iconColor: 'text-pink-500',
-    iconBg: 'bg-pink-500/10',
-  },
-];
+import { ArrowRight } from 'lucide-react';
+import { CONTACT_LINKS } from '../data/contact';
 
 export default function Contact() {
   return (
@@ -96,7 +54,7 @@ export default function Contact() {
             <div className="absolute inset-0 bg-gradient-to-r from-white/0 to-white/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
             
             <div className="flex items-center gap-4 relative z-10">
-              <div className={`flex h-12 w-12 items-center justify-center rounded-xl \${link.iconBg} \${link.iconColor}`}>
+              <div className={`flex h-12 w-12 items-center justify-center rounded-xl ${link.iconBg} ${link.iconColor}`}>
                 <link.icon className="h-6 w-6 stroke-[1.5]" />
               </div>
               <div>
