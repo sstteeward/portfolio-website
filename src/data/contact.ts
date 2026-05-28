@@ -31,8 +31,8 @@ export const CONTACT_LINKS: ContactLink[] = [
     value: 'sstteeward',
     icon: Github,
     href: 'https://github.com/sstteeward',
-    iconColor: 'text-white',
-    iconBg: 'bg-white/10',
+    iconColor: 'text-[#F27D26]',
+    iconBg: 'bg-[#F27D26]/10',
   },
   {
     title: 'FACEBOOK',
