@@ -8,34 +8,9 @@ import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import Feedback from '../components/Feedback';
 
-const IMAGES = [
-  {
-    id: 1,
-    url: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1600&h=900',
-    title: 'Code & Coffee',
-    desc: 'The essential developer fuel.',
-  },
-  {
-    id: 2,
-    url: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=1600&h=900',
-    title: 'Modern Workspace',
-    desc: 'Clean environment for clean code.',
-  },
-  {
-    id: 3,
-    url: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=1600&h=900',
-    title: 'Late Night Debugging',
-    desc: 'When the best ideas come to light.',
-  },
-  {
-    id: 4,
-    url: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600&h=900',
-    title: 'Data Visualization',
-    desc: 'Turning complex logic into beautiful UI.',
-  },
-];
+import { IMAGES } from '../data/gallery';
+import Feedback from '../components/sections/Feedback';
 
 export default function Gallery() {
   const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
@@ -49,9 +24,8 @@ export default function Gallery() {
   };
 
   return (
-    <>
-      <div className="mx-auto max-w-7xl px-0 sm:px-6 py-20 relative overflow-hidden min-h-[80vh] flex flex-col">
-        <div className="mb-12 px-6 sm:px-0 flex flex-col items-center justify-center text-center gap-6">
+    <div className="mx-auto max-w-7xl px-0 sm:px-6 py-20 relative overflow-hidden min-h-[80vh] flex flex-col">
+      <div className="mb-12 px-6 sm:px-0 flex flex-col items-center justify-center text-center gap-6">
         <div>
           <h1 className="text-4xl font-bold tracking-tight mb-4">Gallery</h1>
           <p className="mt-4 text-white/60 mx-auto max-w-xl">A visual journey through my workspace & inspiration.</p>
@@ -60,14 +34,14 @@ export default function Gallery() {
         <div className="flex items-center gap-3">
           <button 
             onClick={scrollPrev}
-            className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/70 transition-all hover:bg-white/10 hover:text-white hover:border-[#F27D26] active:scale-95"
+            className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/70 transition-all hover:bg-white/10 hover:border-[#F27D26] hover:text-white active:scale-95"
             aria-label="Previous slide"
           >
             <ChevronLeft className="h-6 w-6" />
           </button>
           <button 
             onClick={scrollNext}
-            className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/70 transition-all hover:bg-white/10 hover:text-white hover:border-[#F27D26] active:scale-95"
+            className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/70 transition-all hover:bg-white/10 hover:border-[#F27D26] hover:text-white active:scale-95"
             aria-label="Next slide"
           >
             <ChevronRight className="h-6 w-6" />
@@ -126,8 +100,8 @@ export default function Gallery() {
         </Swiper>
         <div className="custom-pagination mt-8 flex justify-center gap-2 [&>.swiper-pagination-bullet]:w-2 [&>.swiper-pagination-bullet]:h-2 [&>.swiper-pagination-bullet]:bg-white/40 [&>.swiper-pagination-bullet]:rounded-full [&>.swiper-pagination-bullet-active]:w-8 [&>.swiper-pagination-bullet-active]:bg-[#F27D26] [&>.swiper-pagination-bullet]:transition-all [&>.swiper-pagination-bullet]:cursor-pointer"></div>
       </div>
-      </div>
+
       <Feedback />
-    </>
+    </div>
   );
 }

@@ -1,48 +1,6 @@
 import { motion } from 'motion/react';
-import { ArrowRight, Mail, Linkedin, Github, Facebook, Instagram } from 'lucide-react';
-
-const CONTACT_LINKS = [
-  {
-    title: 'EMAIL',
-    value: 'stewardhumiwat@gmail.com',
-    icon: Mail,
-    href: 'mailto:stewardhumiwat@gmail.com',
-    iconColor: 'text-[#F27D26]',
-    iconBg: 'bg-[#F27D26]/10',
-  },
-  {
-    title: 'LINKEDIN',
-    value: 'Steward S. Humiwat',
-    icon: Linkedin,
-    href: 'https://linkedin.com/',
-    iconColor: 'text-[#F27D26]',
-    iconBg: 'bg-[#F27D26]/10',
-  },
-  {
-    title: 'GITHUB',
-    value: 'sstteeward',
-    icon: Github,
-    href: 'https://github.com/sstteeward',
-    iconColor: 'text-white',
-    iconBg: 'bg-white/10',
-  },
-  {
-    title: 'FACEBOOK',
-    value: 'Steward Sarong Humiwat',
-    icon: Facebook,
-    href: 'https://facebook.com/',
-    iconColor: 'text-[#F27D26]',
-    iconBg: 'bg-[#F27D26]/10',
-  },
-  {
-    title: 'INSTAGRAM',
-    value: '@sho__ess',
-    icon: Instagram,
-    href: 'https://instagram.com/sho__ess',
-    iconColor: 'text-[#F27D26]',
-    iconBg: 'bg-[#F27D26]/10',
-  },
-];
+import { ArrowRight } from 'lucide-react';
+import { CONTACT_LINKS } from '../data/contact';
 
 export default function Contact() {
   return (
@@ -90,13 +48,13 @@ export default function Contact() {
               hidden: { opacity: 0, y: 20 },
               show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 300, damping: 24 } },
             }}
-            className="group flex items-center justify-between rounded-2xl border border-white/5 bg-[#0A0A0A] p-4 transition-all hover:border-[#F27D26] hover:bg-white/5 relative overflow-hidden"
+            className="group flex items-center justify-between rounded-2xl border border-white/5 bg-[#0A0A0A] p-4 transition-all hover:border-white/10 hover:bg-white/5 relative overflow-hidden"
           >
             {/* Subtle gradient hover effect */}
             <div className="absolute inset-0 bg-gradient-to-r from-white/0 to-white/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
             
             <div className="flex items-center gap-4 relative z-10">
-              <div className={`flex h-12 w-12 items-center justify-center rounded-xl \${link.iconBg} \${link.iconColor}`}>
+              <div className={`flex h-12 w-12 items-center justify-center rounded-xl ${link.iconBg} ${link.iconColor}`}>
                 <link.icon className="h-6 w-6 stroke-[1.5]" />
               </div>
               <div>
