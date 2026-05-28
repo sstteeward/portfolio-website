@@ -46,7 +46,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="flex min-h-screen flex-col font-sans">
-      <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-[#050505]/80 backdrop-blur-md">
+      <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 hover:border-[#F27D26] transition-colors bg-[#050505]/80 backdrop-blur-md">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
           <a href="#home" onClick={(e) => handleNavClick(e, 'home')} className="text-xl font-bold tracking-tighter">
             sstteward<span className="text-[#F27D26]">.</span>
@@ -116,7 +116,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       <main className="flex-1 pt-20">{children}</main>
 
-      <footer className="border-t border-white/10 py-12 text-center text-sm text-white/40">
+      <footer className="border-t border-white/10 hover:border-[#F27D26] transition-colors py-12 text-center text-sm text-white/40">
         <p>© {new Date().getFullYear()} Steward Humiwat. All rights reserved.</p>
       </footer>
     </div>

@@ -16,7 +16,7 @@ const PROJECTS = [
     tech: ['React', 'JavaScript', 'CSS', 'Supabase'],
     link: '#',
     github: '#',
-    color: 'from-blue-500/20 to-purple-500/20',
+    color: 'from-[#F27D26]/20 to-transparent',
   },
   {
     title: 'Asian College EIS',
@@ -24,7 +24,7 @@ const PROJECTS = [
     tech: ['PHP', 'CSS', 'HTML'],
     link: '#',
     github: '#',
-    color: 'from-[#F27D26]/20 to-red-500/20',
+    color: 'from-[#F27D26]/20 to-transparent',
   },
   {
     title: 'Asian College Speech Recognition Software',
@@ -32,7 +32,7 @@ const PROJECTS = [
     tech: ['JavaScript', 'HTML', 'CSS'],
     link: '#',
     github: '#',
-    color: 'from-emerald-500/20 to-teal-500/20',
+    color: 'from-[#F27D26]/20 to-transparent',
   },
   {
     title: 'Re-creating website in the react.js',
@@ -40,7 +40,7 @@ const PROJECTS = [
     tech: ['React'],
     link: '#',
     github: '#',
-    color: 'from-cyan-500/20 to-blue-500/20',
+    color: 'from-[#F27D26]/20 to-transparent',
   },
   {
     title: 'Order Management System',
@@ -48,7 +48,7 @@ const PROJECTS = [
     tech: ['Figma', 'Flowchart', 'Wireframe'],
     link: '#',
     github: '#',
-    color: 'from-indigo-500/20 to-violet-500/20',
+    color: 'from-[#F27D26]/20 to-transparent',
   },
   {
     title: 'Portfolio Website',
@@ -56,7 +56,7 @@ const PROJECTS = [
     tech: ['React', 'HTML', 'CSS'],
     link: '#',
     github: '#',
-    color: 'from-fuchsia-500/20 to-pink-500/20',
+    color: 'from-[#F27D26]/20 to-transparent',
   },
 ];
 
@@ -73,10 +73,10 @@ export default function Projects() {
 
   return (
     <div className="mx-auto max-w-7xl px-0 sm:px-6 py-20 relative overflow-hidden">
-      <div className="mb-16 px-6 sm:px-0 flex flex-col md:flex-row md:items-end justify-between gap-8">
+      <div className="mb-16 px-6 sm:px-0 flex flex-col items-center justify-center text-center gap-6">
         <div>
           <h1 className="text-4xl font-bold tracking-tight mb-4">Selected Works</h1>
-          <p className="text-white/60 max-w-xl text-lg">
+          <p className="text-white/60 max-w-xl text-lg mx-auto">
             A showcase of things I've built. From complex web apps to creative interactive designs.
           </p>
         </div>
@@ -84,14 +84,14 @@ export default function Projects() {
         <div className="flex items-center gap-3">
           <button 
             onClick={scrollPrev}
-            className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/70 transition-all hover:bg-white/10 hover:text-white active:scale-95"
+            className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/70 transition-all hover:bg-white/10 hover:text-white hover:border-[#F27D26] active:scale-95"
             aria-label="Previous slide"
           >
             <ChevronLeft className="h-6 w-6" />
           </button>
           <button 
             onClick={scrollNext}
-            className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/70 transition-all hover:bg-white/10 hover:text-white active:scale-95"
+            className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/70 transition-all hover:bg-white/10 hover:text-white hover:border-[#F27D26] active:scale-95"
             aria-label="Next slide"
           >
             <ChevronRight className="h-6 w-6" />
@@ -131,7 +131,7 @@ export default function Projects() {
             <SwiperSlide key={i} className="max-w-[320px] md:max-w-[420px] transition-all duration-300">
               {({ isActive }) => (
                 <div
-                  className={`group flex flex-col overflow-hidden rounded-3xl border ${isActive ? 'border-indigo-500/50 shadow-2xl shadow-indigo-500/10 bg-[#111]' : 'border-white/10 bg-[#0A0A0A]'} transition-all duration-500 h-full`}
+                  className={`group flex flex-col overflow-hidden rounded-3xl border ${isActive ? 'border-[#F27D26]/50 shadow-2xl shadow-[#F27D26]/10 bg-[#111]' : 'border-white/10 bg-[#0A0A0A] hover:border-[#F27D26]'} transition-all duration-500 h-full`}
                 >
                   {/* Top "Image" Area */}
                   <div className="flex h-56 w-full items-center justify-center border-b border-white/10 relative overflow-hidden bg-slate-900">
@@ -148,7 +148,7 @@ export default function Projects() {
                          href={project.link}
                          target="_blank"
                          rel="noopener noreferrer"
-                         className="flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-500 px-5 py-2.5 text-sm font-bold text-white shadow-lg transition-transform hover:scale-105 active:scale-95"
+                         className="flex items-center gap-2 rounded-full bg-[#F27D26] px-5 py-2.5 text-sm font-bold text-white shadow-lg transition-transform hover:scale-105 active:scale-95"
                        >
                          <ExternalLink className="h-4 w-4" /> Live Demo
                        </a>
@@ -156,7 +156,7 @@ export default function Projects() {
                          href={project.github}
                          target="_blank"
                          rel="noopener noreferrer"
-                         className="flex items-center gap-2 rounded-full bg-[#111] px-5 py-2.5 text-sm font-bold text-white shadow-lg border border-white/5 transition-colors hover:bg-white/10"
+                         className="flex items-center gap-2 rounded-full bg-[#111] px-5 py-2.5 text-sm font-bold text-white shadow-lg border border-white/5 transition-colors hover:bg-white/10 hover:border-[#F27D26]"
                        >
                          <Github className="h-4 w-4" /> Source
                        </a>
@@ -172,7 +172,7 @@ export default function Projects() {
                       {project.tech.map((t, idx) => (
                         <span
                           key={idx}
-                          className="rounded-full border border-blue-500/20 bg-blue-500/10 px-3 py-1 text-[11px] font-medium text-blue-300"
+                          className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-medium text-white/70 hover:border-[#F27D26] transition-colors"
                         >
                           {t}
                         </span>

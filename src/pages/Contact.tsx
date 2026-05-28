@@ -7,23 +7,23 @@ const CONTACT_LINKS = [
     value: 'stewardhumiwat@gmail.com',
     icon: Mail,
     href: 'mailto:stewardhumiwat@gmail.com',
-    iconColor: 'text-indigo-400',
-    iconBg: 'bg-indigo-500/10',
+    iconColor: 'text-[#F27D26]',
+    iconBg: 'bg-[#F27D26]/10',
   },
   {
     title: 'LINKEDIN',
     value: 'Steward S. Humiwat',
     icon: Linkedin,
     href: 'https://linkedin.com/',
-    iconColor: 'text-blue-500',
-    iconBg: 'bg-blue-500/10',
+    iconColor: 'text-[#F27D26]',
+    iconBg: 'bg-[#F27D26]/10',
   },
   {
     title: 'GITHUB',
     value: 'sstteeward',
     icon: Github,
     href: 'https://github.com/sstteeward',
-    iconColor: 'text-gray-300',
+    iconColor: 'text-white',
     iconBg: 'bg-white/10',
   },
   {
@@ -31,16 +31,16 @@ const CONTACT_LINKS = [
     value: 'Steward Sarong Humiwat',
     icon: Facebook,
     href: 'https://facebook.com/',
-    iconColor: 'text-blue-600',
-    iconBg: 'bg-blue-600/10',
+    iconColor: 'text-[#F27D26]',
+    iconBg: 'bg-[#F27D26]/10',
   },
   {
     title: 'INSTAGRAM',
     value: '@sho__ess',
     icon: Instagram,
     href: 'https://instagram.com/sho__ess',
-    iconColor: 'text-pink-500',
-    iconBg: 'bg-pink-500/10',
+    iconColor: 'text-[#F27D26]',
+    iconBg: 'bg-[#F27D26]/10',
   },
 ];
 
@@ -52,7 +52,7 @@ export default function Contact() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center md:text-left"
+          className="text-center w-full flex flex-col items-center"
         >
           <span className="font-mono text-sm tracking-widest text-[#F27D26] uppercase mb-4 block">
             Get In Touch
@@ -60,7 +60,7 @@ export default function Contact() {
           <h1 className="text-5xl font-bold tracking-tight mb-6 lg:text-7xl">
             Let's build<br className="hidden md:block" /> something together.
           </h1>
-          <p className="text-lg text-white/60 mb-10 max-w-xl mx-auto md:mx-0">
+          <p className="text-lg text-white/60 mb-10 max-w-xl text-center">
             I'm currently available for freelance work and full-time opportunities. Reach out to me through any of the platforms below.
           </p>
         </motion.div>
@@ -90,7 +90,7 @@ export default function Contact() {
               hidden: { opacity: 0, y: 20 },
               show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 300, damping: 24 } },
             }}
-            className="group flex items-center justify-between rounded-2xl border border-white/5 bg-[#0A0A0A] p-4 transition-all hover:border-white/10 hover:bg-white/5 relative overflow-hidden"
+            className="group flex items-center justify-between rounded-2xl border border-white/5 bg-[#0A0A0A] p-4 transition-all hover:border-[#F27D26] hover:bg-white/5 relative overflow-hidden"
           >
             {/* Subtle gradient hover effect */}
             <div className="absolute inset-0 bg-gradient-to-r from-white/0 to-white/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />

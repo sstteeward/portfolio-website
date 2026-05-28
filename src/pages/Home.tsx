@@ -45,7 +45,7 @@ export default function Home() {
 
               <a
                 href="#projects"
-                className="group shrink-0 flex items-center gap-2 rounded-full border border-white/20 bg-white/5 py-4 px-8 text-sm font-medium transition-all hover:bg-white/10"
+                className="group shrink-0 flex items-center gap-2 rounded-full border border-white/20 bg-white/5 py-4 px-8 text-sm font-medium transition-all hover:bg-white/10 hover:border-[#F27D26]"
               >
                 Explore Projects
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -59,7 +59,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.3 }}
             src={profileImg}
             alt="Steward Humiwat"
-            className="w-48 h-64 sm:w-64 sm:h-80 md:w-[20rem] md:h-[26rem] xl:w-[26rem] xl:h-[32rem] object-cover rounded-[2rem] xl:rounded-[3rem] border border-white/10 shadow-2xl shrink-0"
+            className="w-48 h-64 sm:w-64 sm:h-80 md:w-[20rem] md:h-[26rem] xl:w-[26rem] xl:h-[32rem] object-cover rounded-[2rem] xl:rounded-[3rem] border border-white/10 hover:border-[#F27D26] transition-colors duration-300 shadow-2xl shrink-0"
           />
         </div>
       </section>
@@ -67,8 +67,8 @@ export default function Home() {
       {/* Skills & Experience Section */}
       <section className="py-24 border-t border-white/10 flex flex-col items-center w-full" id="skills-experience">
         <div className="text-center mb-20 w-full">
-          <h2 className="text-sm font-bold tracking-widest text-cyan-400 uppercase mb-3">WHAT I KNOW</h2>
-          <h3 className="text-4xl md:text-5xl font-bold tracking-tight text-[#8b6ce3] mb-6">Skills & Experience</h3>
+          <h2 className="text-sm font-bold tracking-widest text-[#F27D26] uppercase mb-3">WHAT I KNOW</h2>
+          <h3 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-6">Skills & Experience</h3>
           <p className="text-lg text-white/60 max-w-2xl mx-auto">
             Technologies I work with and the experiences that have shaped my journey.
           </p>
@@ -78,7 +78,7 @@ export default function Home() {
           {/* Tech Stack Column */}
           <div>
             <div className="mb-10 flex items-center gap-3">
-              <div className="h-2 w-2 rounded-full bg-indigo-500 shadow-[0_0_10px_2px_rgba(99,102,241,0.5)]" />
+              <div className="h-2 w-2 rounded-full bg-[#F27D26] shadow-[0_0_10px_2px_rgba(242,125,38,0.5)]" />
               <h2 className="text-sm font-bold tracking-widest text-white/80 uppercase">TECH STACK</h2>
             </div>
             
@@ -114,7 +114,7 @@ export default function Home() {
                 initial: { opacity: 0, y: 20 },
                 animate: { opacity: 1, y: 0, transition: { delay: i * 0.05, duration: 0.4 } }
               }}
-              className="group flex flex-col items-center justify-center gap-4 rounded-3xl border border-white/5 bg-[#0A0A0A] p-6 transition-all hover:border-white/10 hover:bg-white/5"
+              className="group flex flex-col items-center justify-center gap-4 rounded-3xl border border-white/5 bg-[#0A0A0A] p-6 transition-all hover:border-[#F27D26] hover:bg-white/5"
             >
               <div className="flex h-16 w-16 items-center justify-center">
                 {item.type === "text" ? (
@@ -141,7 +141,7 @@ export default function Home() {
           {/* Work History Column */}
           <div>
             <div className="mb-10 flex items-center gap-3">
-              <div className="h-2 w-2 rounded-full bg-cyan-400 shadow-[0_0_10px_2px_rgba(34,211,238,0.5)]" />
+              <div className="h-2 w-2 rounded-full bg-[#F27D26] shadow-[0_0_10px_2px_rgba(242,125,38,0.5)]" />
               <h2 className="text-sm font-bold tracking-widest text-white/80 uppercase">WORK HISTORY</h2>
             </div>
             
@@ -222,17 +222,17 @@ export default function Home() {
                   whileInView={{ scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ type: "spring", stiffness: 300, damping: 10, delay: i * 0.1 + 0.4 }}
-                  className="h-2.5 w-2.5 rounded-full bg-indigo-500 shadow-[0_0_10px_2px_rgba(99,102,241,0.5)]" 
+                  className="h-2.5 w-2.5 rounded-full bg-[#F27D26] shadow-[0_0_10px_2px_rgba(242,125,38,0.5)]" 
                 />
               </motion.div>
               
               {/* Content box */}
               <div className="w-full pl-16">
-                <div className="flex flex-col rounded-3xl border border-white/5 bg-[#0A0A0A] p-6 transition-colors hover:border-white/10 hover:bg-white/[0.02]">
+                <div className="flex flex-col rounded-3xl border border-white/5 bg-[#0A0A0A] p-6 transition-colors hover:border-[#F27D26] hover:bg-white/[0.02]">
                   <div className="flex items-center gap-4 mb-4">
                     <div>
                       <h3 className="text-xl font-bold tracking-tight text-white/90">{job.role}</h3>
-                      <span className="text-sm font-semibold text-indigo-400">{job.company}</span>
+                      <span className="text-sm font-semibold text-[#F27D26]">{job.company}</span>
                     </div>
                   </div>
                   
@@ -244,7 +244,7 @@ export default function Home() {
                   <ul className="space-y-2">
                     {job.description.map((desc, idx) => (
                       <li key={idx} className="flex items-start gap-3 text-sm text-white/60 font-medium">
-                        <div className="mt-1.5 h-1.5 w-1.5 rounded-full bg-cyan-400 shrink-0" />
+                        <div className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#F27D26] shrink-0" />
                         <span>{desc}</span>
                       </li>
                     ))}
