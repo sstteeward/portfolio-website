@@ -26,7 +26,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 hover:border-[#F27D26] transition-colors bg-[#050505]/80 backdrop-blur-md">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
           <a href="#home" onClick={(e) => handleNavClick(e, 'home')} className="text-xl font-bold tracking-tighter">
-            sstteward<span className="text-[#F27D26]">.</span>
+            sstteward
           </a>
 
           <DesktopNav activeSection={activeSection} onNavClick={handleNavClick} />
