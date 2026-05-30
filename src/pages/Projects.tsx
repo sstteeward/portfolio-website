@@ -66,15 +66,16 @@ export default function Projects() {
           coverflowEffect={{
             rotate: 0,
             stretch: 0,
-            depth: 150,
+            depth: 100, // Reduced depth for a smoother look
             modifier: 2.5,
             slideShadows: true,
           }}
           autoplay={{
-            delay: 2500,
+            delay: 3000,
             disableOnInteraction: false,
+            pauseOnMouseEnter: true,
           }}
-          speed={800}
+          speed={1200}
           onSwiper={setSwiperInstance}
           modules={[EffectCoverflow, Autoplay, Navigation]}
           className="w-full pt-4 pb-16 [perspective:1000px]"

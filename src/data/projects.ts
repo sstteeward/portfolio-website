@@ -1,7 +1,7 @@
 import silMonitoringImg from '../assets/images/SIL Monitoring System.png';
 import asianCollegeEisImg from '../assets/images/Asian College EIS.png';
 import asianCollegeSpeechImg from '../assets/images/Asian College Speech Recognition Software.png';
-import orderManagementImg from '../assets/images/Screenshot 2025-03-28 220528.png';
+import orderManagementImg from '../assets/images/Ordering System.png';
 import portfolioWebsiteImg from '../assets/images/Portfolio Website.png';
 import recreatingWebsiteImg from '../assets/images/Re-creating website in the react.js.png';
 
