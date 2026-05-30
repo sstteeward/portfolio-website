@@ -10,7 +10,6 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 import { IMAGES } from '../data/gallery';
-import Feedback from '../components/sections/Feedback';
 
 export default function Gallery() {
   const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
@@ -100,8 +99,6 @@ export default function Gallery() {
         </Swiper>
         <div className="custom-pagination mt-8 flex justify-center gap-2 [&>.swiper-pagination-bullet]:w-2 [&>.swiper-pagination-bullet]:h-2 [&>.swiper-pagination-bullet]:bg-white/40 [&>.swiper-pagination-bullet]:rounded-full [&>.swiper-pagination-bullet-active]:w-8 [&>.swiper-pagination-bullet-active]:bg-[#F27D26] [&>.swiper-pagination-bullet]:transition-all [&>.swiper-pagination-bullet]:cursor-pointer"></div>
       </div>
-
-      <Feedback />
     </div>
   );
 }
