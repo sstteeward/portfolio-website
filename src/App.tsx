@@ -7,6 +7,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
+import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
 
 export default function App() {
@@ -18,6 +19,9 @@ export default function App() {
         </div>
         <div id="projects">
           <Projects />
+        </div>
+        <div id="gallery">
+          <Gallery />
         </div>
         <div id="contact">
           <Contact />

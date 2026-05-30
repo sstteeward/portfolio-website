@@ -7,5 +7,6 @@ export const NAV_LINKS: NavLink[] = [
   { name: 'Home', path: 'home' },
   { name: 'About Me', path: 'skills-experience' },
   { name: 'Projects', path: 'projects' },
+  { name: 'Gallery', path: 'gallery' },
   { name: 'Contact', path: 'contact' },
 ];
