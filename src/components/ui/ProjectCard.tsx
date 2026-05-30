@@ -14,11 +14,19 @@ export default function ProjectCard({ project, isActive }: ProjectCardProps) {
       {/* Top "Image" Area */}
       <div className="flex h-56 w-full items-center justify-center border-b border-white/10 relative overflow-hidden bg-slate-900">
         <div
-          className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-40 transition-opacity duration-500 group-hover:opacity-60`}
+          className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-40 transition-opacity duration-500 group-hover:opacity-60 z-10`}
         />
-        <span className="relative z-10 text-6xl text-white/90 drop-shadow-lg tracking-wide font-bold transition-transform duration-500 group-hover:scale-110" style={{fontFamily: "'Dancing Script', cursive"}}>
-          sstteward
-        </span>
+        {project.image ? (
+          <img 
+            src={project.image} 
+            alt={project.title} 
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+          />
+        ) : (
+          <span className="relative z-10 text-6xl text-white/90 drop-shadow-lg tracking-wide font-bold transition-transform duration-500 group-hover:scale-110" style={{fontFamily: "'Dancing Script', cursive"}}>
+            sstteward
+          </span>
+        )}
 
         {/* Hover Overlay Buttons */}
         <div className={`absolute inset-0 z-20 flex items-center justify-center gap-4 bg-black/40 backdrop-blur-sm transition-opacity duration-300 ${isActive ? 'opacity-0 hover:opacity-100' : 'opacity-0'}`}>

@@ -1,3 +1,10 @@
+import silMonitoringImg from '../assets/images/SIL Monitoring System.png';
+import asianCollegeEisImg from '../assets/images/Asian College EIS.png';
+import asianCollegeSpeechImg from '../assets/images/Asian College Speech Recognition Software.png';
+import orderManagementImg from '../assets/images/Screenshot 2025-03-28 220528.png';
+import portfolioWebsiteImg from '../assets/images/Portfolio Website.png';
+import recreatingWebsiteImg from '../assets/images/Re-creating website in the react.js.png';
+
 export interface Project {
   title: string;
   desc: string;
@@ -5,6 +12,7 @@ export interface Project {
   link: string;
   github: string;
   color: string;
+  image?: string;
 }
 
 export const PROJECTS: Project[] = [
@@ -15,6 +23,7 @@ export const PROJECTS: Project[] = [
     link: '#',
     github: '#',
     color: 'from-[#F27D26]/20 to-transparent',
+    image: silMonitoringImg,
   },
   {
     title: 'Asian College EIS',
@@ -23,6 +32,7 @@ export const PROJECTS: Project[] = [
     link: '#',
     github: '#',
     color: 'from-[#F27D26]/20 to-transparent',
+    image: asianCollegeEisImg,
   },
   {
     title: 'Asian College Speech Recognition Software',
@@ -31,6 +41,7 @@ export const PROJECTS: Project[] = [
     link: '#',
     github: '#',
     color: 'from-[#F27D26]/20 to-transparent',
+    image: asianCollegeSpeechImg,
   },
   {
     title: 'Re-creating website in the react.js',
@@ -39,6 +50,7 @@ export const PROJECTS: Project[] = [
     link: '#',
     github: '#',
     color: 'from-[#F27D26]/20 to-transparent',
+    image: recreatingWebsiteImg,
   },
   {
     title: 'Order Management System',
@@ -47,6 +59,7 @@ export const PROJECTS: Project[] = [
     link: '#',
     github: '#',
     color: 'from-[#F27D26]/20 to-transparent',
+    image: orderManagementImg,
   },
   {
     title: 'Portfolio Website',
@@ -55,5 +68,6 @@ export const PROJECTS: Project[] = [
     link: '#',
     github: '#',
     color: 'from-[#F27D26]/20 to-transparent',
+    image: portfolioWebsiteImg,
   },
 ];
