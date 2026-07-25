@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { NAV_LINKS } from '../../data/navLinks';
+import ViewerCounter from '../ui/ViewerCounter';
 
 interface DesktopNavProps {
   activeSection: string;
@@ -9,7 +10,7 @@ interface DesktopNavProps {
 
 export default function DesktopNav({ activeSection, onNavClick }: DesktopNavProps) {
   return (
-    <nav className="hidden space-x-10 md:flex">
+    <nav className="hidden items-center space-x-8 md:flex">
       {NAV_LINKS.map((link) => {
         const isActive = activeSection === link.path;
         return (
@@ -31,6 +32,10 @@ export default function DesktopNav({ activeSection, onNavClick }: DesktopNavProp
           </a>
         );
       })}
+      <div className="pl-2 border-l border-white/10">
+        <ViewerCounter />
+      </div>
     </nav>
   );
 }
+

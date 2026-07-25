@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import DesktopNav from './Navigation/DesktopNav';
 import MobileNav from './Navigation/MobileNav';
-import ViewerCounter from './ui/ViewerCounter';
 import { useActiveSection } from '../hooks/useActiveSection';
 import { NAV_LINKS } from '../data/navLinks';
 
@@ -26,12 +25,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <div className="flex min-h-screen flex-col font-sans">
       <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 hover:border-[#F27D26] transition-colors bg-[#050505]/80 backdrop-blur-md">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
-          <div className="flex items-center gap-3 sm:gap-4">
-            <a href="#home" onClick={(e) => handleNavClick(e, 'home')} className="text-xl font-bold tracking-tighter shrink-0">
-              sstteward
-            </a>
-            <ViewerCounter />
-          </div>
+          <a href="#home" onClick={(e) => handleNavClick(e, 'home')} className="text-xl font-bold tracking-tighter shrink-0">
+            sstteward
+          </a>
 
           <DesktopNav activeSection={activeSection} onNavClick={handleNavClick} />
 

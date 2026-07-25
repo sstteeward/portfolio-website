@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { NAV_LINKS } from '../../data/navLinks';
+import ViewerCounter from '../ui/ViewerCounter';
 
 interface MobileNavProps {
   activeSection: string;
@@ -30,7 +31,12 @@ export default function MobileNav({ activeSection, onNavClick }: MobileNavProps)
             {link.name}
           </a>
         ))}
+        <div className="pt-2 border-t border-white/10 flex items-center justify-between">
+          <span className="text-xs font-medium text-white/40">Portfolio Activity</span>
+          <ViewerCounter />
+        </div>
       </div>
     </motion.div>
   );
 }
+
