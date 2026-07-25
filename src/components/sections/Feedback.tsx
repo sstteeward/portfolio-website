@@ -254,7 +254,7 @@ export default function Feedback() {
           >
             <h3 className="text-xl font-bold text-white mb-6">Recent Messages</h3>
 
-            <div className="flex-1 max-h-[460px] overflow-y-auto pr-2 space-y-4 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
+            <div className="flex-1 max-h-[460px] overflow-y-auto pr-2 space-y-4 custom-scrollbar scroll-fade-mask">
               {loadingFeedbacks ? (
                 <div className="flex flex-col items-center justify-center py-20 text-white/40 gap-3">
                   <Loader2 className="h-8 w-8 animate-spin text-[#F27D26]" />
