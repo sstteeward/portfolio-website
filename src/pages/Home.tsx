@@ -1,4 +1,5 @@
 import Hero from '../components/sections/Hero';
+import Education from '../components/sections/Education';
 import Skills from '../components/sections/Skills';
 import ExperienceTimeline from '../components/sections/ExperienceTimeline';
 
@@ -6,6 +7,7 @@ export default function Home() {
   return (
     <div className="mx-auto max-w-7xl px-6">
       <Hero />
+      <Education />
       
       <section className="py-24 border-t border-white/10 flex flex-col items-center w-full" id="skills-experience">
         <div className="text-center mb-20 w-full">
@@ -24,3 +26,4 @@ export default function Home() {
     </div>
   );
 }
+
