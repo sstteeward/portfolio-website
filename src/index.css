@@ -10,6 +10,35 @@ body {
   @apply bg-[#050505] text-[#FAFAFA] antialiased selection:bg-[#F27D26] selection:text-white;
 }
 
+/* Global aesthetic main page scrollbar */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(242, 125, 38, 0.4) #050505;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(242, 125, 38, 0.5) 0%, rgba(242, 125, 38, 0.25) 100%);
+  border-radius: 999px;
+  border: 2px solid #050505;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(242, 125, 38, 0.8) 0%, rgba(242, 125, 38, 0.5) 100%);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: #F27D26;
+}
+
 /* Hide scrollbar for the carousel and other hidden scroll elements */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
