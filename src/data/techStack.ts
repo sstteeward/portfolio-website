@@ -2,6 +2,8 @@ export interface TechItem {
   name: string;
   iconName?: string;
   fallbackColor?: string;
+  proficiency?: number; // 0 to 100
+  yearsOfExperience?: string;
 }
 
 export interface TechCategory {
@@ -12,53 +14,42 @@ export interface TechCategory {
 
 export const TECH_STACK: TechCategory[] = [
   {
-    title: "Frontend Development",
+    title: "Frontend",
     icon: "",
     items: [
-      { name: "HTML", iconName: "html5" },
-      { name: "CSS", iconName: "css3" },
-      { name: "JavaScript", iconName: "javascript" },
-      { name: "React", iconName: "react" },
+      { name: "HTML", iconName: "html5", proficiency: 95, yearsOfExperience: "3+ years" },
+      { name: "CSS", iconName: "css3", proficiency: 90, yearsOfExperience: "3+ years" },
+      { name: "JavaScript", iconName: "javascript", proficiency: 85, yearsOfExperience: "2+ years" },
+      { name: "React", iconName: "react", proficiency: 80, yearsOfExperience: "1+ years" },
     ],
   },
   {
-    title: "Backend Development",
+    title: "Backend",
     icon: "",
     items: [
-      { name: "PHP", iconName: "php" },
-      { name: "Java", iconName: "java" },
-      { name: "C++", iconName: "cplusplus" },
-      { name: "MySQL", iconName: "mysql" },
-      { name: "Supabase", iconName: "supabase" },
+      { name: "PHP", iconName: "php", proficiency: 75, yearsOfExperience: "2+ years" },
+      { name: "Java", iconName: "java", proficiency: 70, yearsOfExperience: "1+ years" },
+      { name: "Node.js", iconName: "nodedotjs", proficiency: 65, yearsOfExperience: "< 1 year" },
     ],
   },
   {
-    title: "UI/UX Design",
+    title: "Database",
     icon: "",
     items: [
-      { name: "Figma", iconName: "figma" },
-      { name: "Canva", iconName: "canva" },
+      { name: "MySQL", iconName: "mysql", proficiency: 85, yearsOfExperience: "2+ years" },
+      { name: "Supabase", iconName: "supabase", proficiency: 75, yearsOfExperience: "1+ years" },
     ],
   },
   {
-    title: "CMS & Website Builders",
+    title: "Tools & Others",
     icon: "",
     items: [
-      { name: "WordPress", iconName: "wordpress" },
-      { name: "Elementor", iconName: "elementor" },
-      { name: "Divi", fallbackColor: "7c3aed" },
-      { name: "Impreza", fallbackColor: "06b6d4" },
-      { name: "Webflow", iconName: "webflow" },
-      { name: "GoHighLevel", fallbackColor: "c026d3" },
-    ],
-  },
-  {
-    title: "Development Tools",
-    icon: "",
-    items: [
-      { name: "Git", iconName: "git" },
-      { name: "GitHub", iconName: "github" },
-      { name: "XAMPP", iconName: "xampp" },
+      { name: "Git", iconName: "git", proficiency: 85 },
+      { name: "GitHub", iconName: "github", proficiency: 90 },
+      { name: "Figma", iconName: "figma", proficiency: 80 },
+      { name: "VS Code", iconName: "visualstudiocode", proficiency: 95 },
+      { name: "WordPress", iconName: "wordpress", proficiency: 85 },
+      { name: "XAMPP", iconName: "xampp", proficiency: 90 },
     ],
   },
 ];

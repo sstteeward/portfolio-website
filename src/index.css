@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -6,16 +6,35 @@
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 }
 
-body {
-  @apply bg-[#050505] text-[#FAFAFA] antialiased selection:bg-[#F27D26] selection:text-white;
-}
-
-/* Global aesthetic main page scrollbar */
+/* ── Smooth scroll ── */
 html {
+  scroll-behavior: smooth;
   scrollbar-width: thin;
   scrollbar-color: rgba(242, 125, 38, 0.4) #050505;
 }
 
+body {
+  @apply bg-[#050505] text-[#FAFAFA] antialiased selection:bg-[#F27D26] selection:text-white;
+}
+
+/* ── Respect reduced-motion preference ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Focus styles for accessibility ── */
+*:focus-visible {
+  outline: 2px solid #F27D26;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ── Global aesthetic main page scrollbar ── */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -39,16 +58,16 @@ html {
   background: #F27D26;
 }
 
-/* Hide scrollbar for the carousel and other hidden scroll elements */
+/* ── Hide scrollbar for carousel and other hidden scroll elements ── */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
 .no-scrollbar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-/* Aesthetic scrollbar for guest comments */
+/* ── Aesthetic scrollbar for guest comments ── */
 .custom-scrollbar {
   scrollbar-width: thin;
   scrollbar-color: rgba(242, 125, 38, 0.3) transparent;
@@ -80,8 +99,34 @@ html {
   background: linear-gradient(180deg, rgba(242, 125, 38, 0.85) 0%, rgba(242, 125, 38, 0.5) 100%);
 }
 
-/* Fade-out mask at bottom to hint more content */
+/* ── Fade-out mask at bottom to hint more content ── */
 .scroll-fade-mask {
   mask-image: linear-gradient(to bottom, black 0%, black 85%, transparent 100%);
   -webkit-mask-image: linear-gradient(to bottom, black 0%, black 85%, transparent 100%);
+}
+
+/* ── Floating gradient blob animation ── */
+@keyframes blob-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -20px) scale(1.05); }
+  66% { transform: translate(-20px, 15px) scale(0.95); }
+}
+
+.animate-blob-float {
+  animation: blob-float 20s ease-in-out infinite;
+}
+
+.animate-blob-float-delayed {
+  animation: blob-float 25s ease-in-out infinite;
+  animation-delay: -7s;
+}
+
+/* ── Typing cursor blink ── */
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-cursor-blink {
+  animation: cursor-blink 0.8s ease-in-out infinite;
 }

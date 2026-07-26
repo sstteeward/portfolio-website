@@ -3,6 +3,7 @@ export interface Experience {
   company: string;
   date: string;
   description: string[];
+  isMilestone?: boolean;
 }
 
 export const EXPERIENCE: Experience[] = [
@@ -50,5 +51,5 @@ export const EXPERIENCE: Experience[] = [
       "Guiding A.I",
       "Correcting the A.I prompt"
     ],
-  }
+  },
 ];

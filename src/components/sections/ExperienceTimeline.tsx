@@ -1,82 +1,117 @@
 import { motion } from 'motion/react';
-import { Calendar } from 'lucide-react';
-import { EXPERIENCE } from '../../data/experience';
+import { Calendar, Briefcase, Flag, Target } from 'lucide-react';
+import { EXPERIENCE, Experience } from '../../data/experience';
+import GlassCard from '../ui/GlassCard';
+import SectionHeading from '../ui/SectionHeading';
+import { useReducedMotion } from '../../hooks/useReducedMotion';
 
-const JobCard = ({ job, i }: { job: any; i: number }) => (
-  <motion.div
-    key={i}
-    initial={{ opacity: 0, x: -20 }}
-    whileInView={{ opacity: 1, x: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.5, delay: i * 0.1 }}
-    className="relative flex items-start group gap-8"
-  >
-    {/* Timeline dot */}
-    <motion.div 
-      initial={{ scale: 0, opacity: 0 }}
-      whileInView={{ scale: 1, opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.4, delay: i * 0.1 + 0.2 }}
-      className="absolute left-0 top-12 flex h-10 w-10 -translate-x-1/2 items-center justify-center rounded-full border border-white/10 bg-white/5 backdrop-blur-md z-10 ml-5"
-    >
-      <motion.div 
-        initial={{ scale: 0 }}
-        whileInView={{ scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ type: "spring", stiffness: 300, damping: 10, delay: i * 0.1 + 0.4 }}
-        className="h-2.5 w-2.5 rounded-full bg-[#F27D26] shadow-[0_0_10px_2px_rgba(242,125,38,0.5)]" 
-      />
-    </motion.div>
-    
-    {/* Content box */}
-    <div className="w-full pl-16">
-      <div className="flex flex-col rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md p-6 transition-all duration-300 hover:border-[#F27D26]/50 hover:bg-white/10 hover:shadow-[0_0_20px_-5px_rgba(242,125,38,0.2)]">
-        <div className="flex items-center gap-4 mb-4">
-          <div>
-            <h3 className="text-xl font-bold tracking-tight text-white/90">{job.role}</h3>
-            <span className="text-sm font-semibold text-[#F27D26]">{job.company}</span>
+function JobCard({ item, index, prefersReduced }: { item: Experience; index: number; prefersReduced: boolean }) {
+  if (item.isMilestone) {
+    return (
+      <motion.div
+        initial={prefersReduced ? { opacity: 1 } : { opacity: 0, x: 20 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.5, delay: prefersReduced ? 0 : index * 0.1 }}
+        className="relative pl-8 md:pl-0"
+      >
+        <div className="md:grid md:grid-cols-5 md:gap-8 lg:gap-12 items-center">
+          <div className="hidden md:block md:col-span-2 text-right">
+            <span className="text-sm font-bold text-[#F27D26] tracking-widest uppercase">{item.date}</span>
+          </div>
+
+          <div className="relative md:col-span-3">
+            <div className="absolute left-[-39px] md:left-[-35px] lg:left-[-41px] top-1/2 -translate-y-1/2 flex h-8 w-8 items-center justify-center rounded-full border-2 border-[#F27D26] bg-[#050505] text-[#F27D26] shadow-[0_0_15px_rgba(242,125,38,0.3)] z-10">
+              <Target className="h-4 w-4" />
+            </div>
+
+            <div className="md:hidden mb-2 text-sm font-bold text-[#F27D26] tracking-widest uppercase">
+              {item.date}
+            </div>
+
+            <GlassCard className="!p-5 border-dashed border-[#F27D26]/40 !bg-[#F27D26]/5" hoverEffect={false}>
+              <h4 className="text-lg font-bold text-white flex items-center gap-2">
+                <Flag className="h-4 w-4 text-[#F27D26]" /> {item.role}
+              </h4>
+              <ul className="mt-3 space-y-1.5 text-sm text-white/60">
+                {item.description.map((desc, i) => (
+                  <li key={i} className="flex items-start gap-2">
+                    <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-[#F27D26]/50" />
+                    <span>{desc}</span>
+                  </li>
+                ))}
+              </ul>
+            </GlassCard>
           </div>
         </div>
-        
-        <div className="flex items-center gap-2 text-white/40 mb-4 text-xs font-semibold">
-          <Calendar className="h-3.5 w-3.5" />
-          <span>{job.date}</span>
+      </motion.div>
+    );
+  }
+
+  return (
+    <motion.div
+      initial={prefersReduced ? { opacity: 1 } : { opacity: 0, x: -20 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5, delay: prefersReduced ? 0 : index * 0.1 }}
+      className="relative pl-8 md:pl-0"
+    >
+      <div className="md:grid md:grid-cols-5 md:gap-8 lg:gap-12">
+        <div className="hidden md:block md:col-span-2 text-right mt-1">
+          <span className="text-sm font-bold text-white/40 tracking-wider uppercase">{item.date}</span>
         </div>
-        
-        <ul className="space-y-2">
-          {job.description.map((desc: string, idx: number) => (
-            <li key={idx} className="flex items-start gap-3 text-sm text-white/60 font-medium">
-              <div className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#F27D26] shrink-0" />
-              <span>{desc}</span>
-            </li>
-          ))}
-        </ul>
+
+        <div className="relative md:col-span-3">
+          {/* Timeline Node */}
+          <div className="absolute left-[-37px] md:left-[-33px] lg:left-[-39px] top-1 flex h-6 w-6 items-center justify-center rounded-full border border-white/20 bg-[#0A0A0A] z-10 transition-colors group-hover:border-[#F27D26]">
+            <div className="h-2 w-2 rounded-full bg-white/40" />
+          </div>
+
+          <div className="md:hidden mb-2 text-xs font-bold text-white/40 tracking-wider uppercase flex items-center gap-2">
+            <Calendar className="h-3 w-3" /> {item.date}
+          </div>
+
+          <GlassCard className="!p-6 relative group">
+            <h4 className="text-xl font-bold text-white group-hover:text-[#F27D26] transition-colors">{item.role}</h4>
+            <div className="mb-4 mt-1 flex items-center gap-2 text-sm font-medium text-white/60">
+              <Briefcase className="h-4 w-4" />
+              <span>{item.company}</span>
+            </div>
+            
+            <ul className="space-y-2 text-sm text-white/70">
+              {item.description.map((desc, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-white/20 group-hover:bg-[#F27D26] transition-colors" />
+                  <span className="leading-relaxed">{desc}</span>
+                </li>
+              ))}
+            </ul>
+          </GlassCard>
+        </div>
       </div>
-    </div>
-  </motion.div>
-);
+    </motion.div>
+  );
+}
 
 export default function ExperienceTimeline() {
+  const prefersReduced = useReducedMotion();
+
   return (
-    <div>
-      <div className="mb-10 flex items-center gap-3">
-        <div className="h-2 w-2 rounded-full bg-[#F27D26] shadow-[0_0_10px_2px_rgba(242,125,38,0.5)]" />
-        <h2 className="text-sm font-bold tracking-widest text-white/80 uppercase">WORK HISTORY</h2>
+    <section className="w-full flex flex-col">
+      <div className="flex items-center gap-3 mb-8">
+        <h3 className="text-2xl font-bold tracking-tight text-white">WORK HISTORY</h3>
       </div>
-      
-      <div className="relative space-y-8">
-        {/* Animated vertical line */}
-        <motion.div
-          initial={{ height: 0 }}
-          whileInView={{ height: "100%" }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
-          className="absolute left-5 top-0 w-0.5 -translate-x-px bg-white/5"
-        />
-        {EXPERIENCE.map((job, i) => (
-          <JobCard key={i} job={job} i={i} />
-        ))}
+
+      <div className="relative mt-4">
+        {/* Main timeline line */}
+        <div className="absolute left-[11px] md:left-[40%] top-2 bottom-2 w-[2px] bg-white/10 rounded-full" />
+        
+        <div className="flex flex-col gap-10">
+          {EXPERIENCE.map((item, index) => (
+            <JobCard key={index} item={item} index={index} prefersReduced={prefersReduced} />
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

@@ -1,70 +1,122 @@
-import { ExternalLink, Github } from 'lucide-react';
+import { motion } from 'motion/react';
+import { ExternalLink, Github, Code2, Maximize2 } from 'lucide-react';
 import { Project } from '../../data/projects';
+import GlassCard from './GlassCard';
+import { useReducedMotion } from '../../hooks/useReducedMotion';
 
 interface ProjectCardProps {
   project: Project;
-  isActive: boolean;
+  isActive?: boolean;
+  onClick?: () => void;
+  variant?: 'swiper' | 'grid';
 }
 
-export default function ProjectCard({ project, isActive }: ProjectCardProps) {
+export default function ProjectCard({ project, isActive = true, onClick, variant = 'swiper' }: ProjectCardProps) {
+  const prefersReduced = useReducedMotion();
+
+  const isGrid = variant === 'grid';
+
   return (
-    <div
-      className={`group flex flex-col overflow-hidden rounded-3xl border ${isActive ? 'border-indigo-500/50 shadow-2xl shadow-indigo-500/10 bg-[#111]' : 'border-white/10 bg-[#0A0A0A]'} transition-all duration-500 h-full`}
+    <GlassCard 
+      className={`group flex h-full flex-col overflow-hidden ${isGrid ? 'cursor-pointer p-0' : 'p-0'} transition-all duration-500`}
+      hoverEffect={isGrid}
     >
-      {/* Top "Image" Area */}
-      <div className="flex h-56 w-full items-center justify-center border-b border-white/10 relative overflow-hidden bg-slate-900">
-        <div
-          className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-40 transition-opacity duration-500 group-hover:opacity-60 z-10`}
-        />
+      <div 
+        className="relative h-48 sm:h-56 w-full overflow-hidden" 
+        onClick={isGrid ? onClick : undefined}
+      >
+        <div className={`absolute inset-0 bg-gradient-to-t ${project.color} opacity-40 z-10 transition-opacity duration-300 group-hover:opacity-20`} />
+        
         {project.image ? (
-          <img 
-            src={project.image} 
-            alt={project.title} 
-            className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+          <img
+            src={project.image}
+            alt={project.title}
+            loading="lazy"
+            className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
           />
         ) : (
-          <span className="relative z-10 text-6xl text-white/90 drop-shadow-lg tracking-wide font-bold transition-transform duration-500 group-hover:scale-110" style={{fontFamily: "'Dancing Script', cursive"}}>
-            sstteward
-          </span>
+          <div className="flex h-full w-full items-center justify-center bg-[#0A0A0A]">
+            <Code2 className="h-16 w-16 text-white/10" />
+          </div>
         )}
-
-        {/* Hover Overlay Buttons */}
-        <div className={`absolute inset-0 z-20 flex items-center justify-center gap-4 bg-black/40 backdrop-blur-sm transition-opacity duration-300 ${isActive ? 'opacity-0 hover:opacity-100' : 'opacity-0'}`}>
-          <a
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-500 px-5 py-2.5 text-sm font-bold text-white shadow-lg transition-transform hover:scale-105 active:scale-95"
-          >
-            <ExternalLink className="h-4 w-4" /> Live Demo
-          </a>
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 rounded-full bg-[#111] px-5 py-2.5 text-sm font-bold text-white shadow-lg border border-white/5 transition-colors hover:bg-white/10 hover:border-[#F27D26]"
-          >
-            <Github className="h-4 w-4" /> Source
-          </a>
-        </div>
+        
+        {isGrid && (
+          <div className="absolute inset-0 z-20 flex items-center justify-center opacity-0 bg-black/40 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100">
+            <div className="flex items-center gap-2 rounded-full bg-[#F27D26] px-4 py-2 font-bold text-white shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+              <Maximize2 className="h-4 w-4" />
+              View Details
+            </div>
+          </div>
+        )}
       </div>
 
-      {/* Content Area */}
-      <div className="flex flex-1 flex-col p-6 min-h-[220px]">
-        <h3 className="text-xl font-bold tracking-tight mb-3 text-white/90">{project.title}</h3>
-        <p className={`text-sm flex-1 ${isActive ? 'text-white/70' : 'text-white/50 line-clamp-3'}`}>{project.desc}</p>
-
-        <div className="flex flex-wrap gap-2 mt-6">
-          {project.tech.map((t, idx) => (
+      <div className={`flex flex-1 flex-col ${isGrid ? 'p-6 sm:p-8' : 'p-6 sm:p-8'} relative z-20 bg-[#0A0A0A]`}>
+        <div className="mb-4 flex flex-wrap gap-2">
+          {project.tech.slice(0, 3).map((t, idx) => (
             <span
               key={idx}
-              className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-medium text-white/70 hover:border-[#F27D26] transition-colors"
+              className="rounded-md border border-white/10 bg-white/5 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white/60 transition-colors group-hover:border-[#F27D26]/30 group-hover:text-[#F27D26]"
             >
               {t}
             </span>
           ))}
+          {project.tech.length > 3 && (
+            <span className="rounded-md border border-white/10 bg-white/5 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white/60">
+              +{project.tech.length - 3}
+            </span>
+          )}
+        </div>
+
+        <h3 className="mb-3 text-xl sm:text-2xl font-bold tracking-tight text-white transition-colors group-hover:text-[#F27D26]">
+          {project.title}
+        </h3>
+        
+        <p className={`mb-6 flex-1 text-sm text-white/60 leading-relaxed ${isGrid ? 'line-clamp-3' : 'line-clamp-4'}`}>
+          {project.desc}
+        </p>
+
+        <div className="mt-auto flex items-center justify-between pt-4 border-t border-white/10">
+          <div className="flex gap-3">
+            {project.github !== '#' && (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="text-white/40 transition-colors hover:text-white"
+                aria-label={`View ${project.title} on GitHub`}
+              >
+                <Github className="h-5 w-5" />
+              </a>
+            )}
+            {project.link !== '#' && (
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="text-white/40 transition-colors hover:text-[#F27D26]"
+                aria-label={`Visit ${project.title} live site`}
+              >
+                <ExternalLink className="h-5 w-5" />
+              </a>
+            )}
+          </div>
+          
+          {!isGrid && onClick && (
+            <button 
+              onClick={onClick}
+              className={`rounded-full px-4 py-1.5 text-xs font-bold transition-all ${
+                isActive 
+                  ? 'bg-[#F27D26] text-white' 
+                  : 'bg-white/10 text-white/70 hover:bg-white/20'
+              }`}
+            >
+              Details
+            </button>
+          )}
         </div>
       </div>
-    </div>
+    </GlassCard>
   );
 }

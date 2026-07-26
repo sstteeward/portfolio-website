@@ -1,190 +1,141 @@
 import { motion } from 'motion/react';
-import { GraduationCap, Calendar, CheckCircle, Award, Check } from 'lucide-react';
+import { GraduationCap, Award, CheckCircle2, Calendar } from 'lucide-react';
 import { EDUCATION } from '../../data/education';
 import { CERTIFICATIONS } from '../../data/certifications';
-
-const AcademicCard = ({ entry, i }: { entry: any; i: number }) => {
-  const isCurrent = entry.status === 'current';
-  const Icon = entry.icon;
-
-  return (
-    <motion.div
-      key={i}
-      initial={{ opacity: 0, x: -15 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.4, delay: i * 0.1 }}
-      className="relative flex items-start group gap-5 pl-12"
-    >
-      {/* Timeline Dot */}
-      <div
-        className={`absolute left-0 top-3.5 flex h-8 w-8 items-center justify-center rounded-full z-10 transition-colors ${
-          isCurrent
-            ? 'bg-[#F27D26] text-white shadow-[0_0_12px_rgba(242,125,38,0.5)]'
-            : 'border border-white/10 bg-white/5 backdrop-blur-md text-[#F27D26]'
-        }`}
-      >
-        <Icon className="h-3.5 w-3.5" />
-        {isCurrent && (
-          <span className="absolute inset-0 rounded-full animate-ping bg-[#F27D26]/30 pointer-events-none" />
-        )}
-      </div>
-
-      {/* Card */}
-      <div
-        className={`w-full rounded-2xl border p-4 md:p-5 backdrop-blur-md transition-all duration-300 ${
-          isCurrent
-            ? 'border-[#F27D26]/40 bg-[#F27D26]/[0.05] hover:border-[#F27D26]/60 hover:bg-[#F27D26]/10 hover:shadow-[0_0_20px_-5px_rgba(242,125,38,0.2)]'
-            : 'border-white/10 bg-white/5 hover:border-[#F27D26]/50 hover:bg-white/10 hover:shadow-[0_0_20px_-5px_rgba(242,125,38,0.2)]'
-        }`}
-      >
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 mb-1.5">
-          <h4 className="text-base font-bold tracking-tight text-white/90">
-            {entry.school}
-          </h4>
-          {isCurrent ? (
-            <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-[#F27D26]/15 border border-[#F27D26]/30 text-[11px] font-semibold text-[#F27D26] w-fit">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#F27D26] animate-pulse" />
-              Currently Studying
-            </span>
-          ) : (
-            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[11px] font-semibold text-emerald-400 w-fit">
-              <CheckCircle className="h-3 w-3" />
-              Graduated
-            </span>
-          )}
-        </div>
-
-        <p className="text-xs font-semibold text-[#F27D26] mb-2">
-          {entry.program}
-        </p>
-
-        <div className="flex flex-wrap items-center gap-3 text-xs font-medium text-white/40">
-          {entry.years && (
-            <div className="flex items-center gap-1">
-              <Calendar className="h-3 w-3 text-white/30" />
-              <span>{entry.years}</span>
-            </div>
-          )}
-          {isCurrent && (
-            <span className="text-white/60 font-semibold">• {entry.statusLabel}</span>
-          )}
-        </div>
-      </div>
-    </motion.div>
-  );
-};
-
-const CertificationGroup = ({ group, groupIdx }: { group: any; groupIdx: number }) => {
-  const GroupIcon = group.icon;
-  return (
-    <motion.div
-      key={groupIdx}
-      initial={{ opacity: 0, y: 15 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.4, delay: groupIdx * 0.1 }}
-      className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md p-5 transition-all duration-300 hover:border-[#F27D26]/50 hover:bg-white/10 hover:shadow-[0_0_20px_-5px_rgba(242,125,38,0.2)] group"
-    >
-      <div className="flex items-center gap-2.5 mb-3 text-[#F27D26]">
-        <GroupIcon className="h-4 w-4 shrink-0" />
-        <h4 className="text-sm font-bold text-white/90 uppercase tracking-wide">
-          {group.category}
-        </h4>
-      </div>
-
-      <ul className="space-y-2.5 pl-1">
-        {group.items.map((item: any, itemIdx: number) => (
-          <li key={itemIdx} className="flex items-start gap-2.5 text-xs md:text-sm text-white/70 font-medium leading-snug">
-            <div className="mt-1 h-4 w-4 rounded-full bg-[#F27D26]/10 border border-[#F27D26]/30 flex items-center justify-center shrink-0">
-              <Check className="h-2.5 w-2.5 text-[#F27D26]" />
-            </div>
-            <div className="flex-1 flex flex-wrap items-center justify-between gap-1">
-              <span className="text-white/90 font-medium">{item.title}</span>
-              <span className="text-[10px] font-semibold text-[#F27D26]/80 bg-[#F27D26]/10 px-2 py-0.5 rounded-md border border-[#F27D26]/20">
-                {item.issuer}
-              </span>
-            </div>
-          </li>
-        ))}
-      </ul>
-    </motion.div>
-  );
-};
+import SectionHeading from '../ui/SectionHeading';
+import { useReducedMotion } from '../../hooks/useReducedMotion';
 
 export default function Education() {
+  const prefersReduced = useReducedMotion();
+
   return (
-    <section className="py-24 border-t border-white/10 w-full" id="education">
-      {/* Main Header */}
-      <div className="mb-16 text-center w-full flex flex-col items-center">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-white/10 bg-white/5 mb-3 hover:border-[#F27D26] transition-colors">
-          <GraduationCap className="h-4 w-4 text-[#F27D26]" />
-          <span className="text-xs font-semibold tracking-wide text-white/80 uppercase">Education & Credentials</span>
+    <section className="py-24 border-t border-white/10 w-full">
+      <div className="mx-auto max-w-7xl px-6">
+        <SectionHeading 
+          badge="EDUCATION &amp; CREDENTIALS" 
+          title="Academic Background &amp; Certifications" 
+          subtitle="My formal education in Information Technology along with my professional certifications and achievements."
+        />
+
+        <div className="grid gap-16 lg:grid-cols-2 lg:gap-20">
+
+          {/* ── Left Column: Academic History ── */}
+          <div className="flex flex-col">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="h-3 w-3 rounded-full bg-[#F27D26]" />
+              <GraduationCap className="h-5 w-5 text-[#F27D26]" />
+              <h3 className="text-sm font-bold tracking-widest uppercase text-white">Academic History</h3>
+            </div>
+
+            {/* Timeline */}
+            <div className="relative pl-8">
+              {/* Vertical line */}
+              <div className="absolute left-[11px] top-0 bottom-0 w-px bg-gradient-to-b from-[#F27D26]/60 via-white/10 to-transparent" />
+
+              <div className="flex flex-col gap-5">
+                {EDUCATION.map((item, index) => {
+                  const isCurrent = item.status === 'current';
+                  return (
+                    <motion.div
+                      key={index}
+                      initial={prefersReduced ? { opacity: 1 } : { opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true, margin: "-50px" }}
+                      transition={{ duration: 0.4, delay: prefersReduced ? 0 : index * 0.1 }}
+                      className="relative"
+                    >
+                      {/* Timeline dot */}
+                      <div className={`absolute -left-8 top-5 h-6 w-6 rounded-full flex items-center justify-center z-10 ${
+                        isCurrent 
+                          ? 'bg-[#F27D26] shadow-[0_0_12px_rgba(242,125,38,0.5)]' 
+                          : 'bg-[#1A1A1A] border border-white/15'
+                      }`}>
+                        <item.icon className={`h-3 w-3 ${isCurrent ? 'text-white' : 'text-white/50'}`} />
+                      </div>
+
+                      {/* Card */}
+                      <div className="rounded-2xl border border-white/5 bg-[#0A0A0A] p-5 hover:border-[#F27D26]/30 transition-colors duration-300">
+                        <div className="flex items-start justify-between gap-3">
+                          <div className="flex-1">
+                            <h4 className="text-base font-bold text-white mb-1">{item.school}</h4>
+                            <p className={`text-sm font-medium ${isCurrent ? 'text-[#F27D26]' : 'text-[#F27D26]/70'}`}>
+                              {item.program}
+                            </p>
+                            {item.years && (
+                              <div className="flex items-center gap-2 mt-2 text-xs text-white/40">
+                                <Calendar className="h-3.5 w-3.5" />
+                                <span>{item.years}</span>
+                                {isCurrent && (
+                                  <span className="text-white/30">· {item.statusLabel}</span>
+                                )}
+                              </div>
+                            )}
+                          </div>
+
+                          {/* Status badge */}
+                          <div className={`shrink-0 inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-wider ${
+                            isCurrent
+                              ? 'bg-[#F27D26]/10 text-[#F27D26] border border-[#F27D26]/30'
+                              : 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
+                          }`}>
+                            <div className={`h-1.5 w-1.5 rounded-full ${isCurrent ? 'bg-[#F27D26] animate-pulse' : 'bg-emerald-400'}`} />
+                            {isCurrent ? 'Currently Studying' : 'Graduated'}
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
+          {/* ── Right Column: Certifications & Credentials ── */}
+          <div className="flex flex-col">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="h-3 w-3 rounded-full bg-[#F27D26]" />
+              <Award className="h-5 w-5 text-[#F27D26]" />
+              <h3 className="text-sm font-bold tracking-widest uppercase text-white">Certifications &amp; Credentials</h3>
+            </div>
+
+            <div className="flex flex-col gap-4">
+              {CERTIFICATIONS.map((group, index) => (
+                <motion.div
+                  key={index}
+                  initial={prefersReduced ? { opacity: 1 } : { opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.4, delay: prefersReduced ? 0 : index * 0.1 }}
+                  className="rounded-2xl border border-white/5 bg-[#0A0A0A] p-5 hover:border-[#F27D26]/20 transition-colors duration-300"
+                >
+                  {/* Category header */}
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#F27D26]/10">
+                      <group.icon className="h-4 w-4 text-[#F27D26]" />
+                    </div>
+                    <h4 className="text-xs font-bold tracking-widest uppercase text-white/90">{group.category}</h4>
+                  </div>
+
+                  {/* Items */}
+                  <ul className="space-y-3">
+                    {group.items.map((item, i) => (
+                      <li key={i} className="flex items-start justify-between gap-3">
+                        <div className="flex items-start gap-2.5">
+                          <CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5 shrink-0" />
+                          <span className="text-sm text-white/70">{item.title}</span>
+                        </div>
+                        <span className="shrink-0 inline-flex rounded-full border border-white/10 bg-white/5 px-2.5 py-0.5 text-[10px] font-medium text-white/50 whitespace-nowrap">
+                          {item.issuer}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
         </div>
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-3">
-          Academic Background & Certifications
-        </h2>
-        <p className="text-base text-white/60 max-w-xl mx-auto">
-          My formal education in Information Technology along with my professional certifications and achievements.
-        </p>
-      </div>
-
-      {/* Grid Container: Left = Academic History, Right = Certifications */}
-      <div className="grid lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-16 items-start w-full">
-        {/* Left Column: Academic History Timeline */}
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="space-y-6"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <div className="h-2.5 w-2.5 rounded-full bg-[#F27D26] shadow-[0_0_10px_2px_rgba(242,125,38,0.5)]" />
-            <h3 className="text-sm font-bold tracking-widest text-white/90 uppercase flex items-center gap-2">
-              <GraduationCap className="h-4 w-4 text-[#F27D26]" />
-              Academic History
-            </h3>
-          </div>
-
-          <div className="relative space-y-6">
-            {/* Vertical timeline line */}
-            <motion.div
-              initial={{ height: 0 }}
-              whileInView={{ height: '100%' }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.2, ease: 'easeOut' }}
-              className="absolute left-4 top-0 w-0.5 -translate-x-px bg-[#F27D26]/20"
-            />
-
-            {EDUCATION.map((entry, i) => (
-              <AcademicCard key={i} entry={entry} i={i} />
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Right Column: Certifications & Credentials */}
-        <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="space-y-6"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <div className="h-2.5 w-2.5 rounded-full bg-[#F27D26] shadow-[0_0_10px_2px_rgba(242,125,38,0.5)]" />
-            <h3 className="text-sm font-bold tracking-widest text-white/90 uppercase flex items-center gap-2">
-              <Award className="h-4 w-4 text-[#F27D26]" />
-              Certifications & Credentials
-            </h3>
-          </div>
-
-          <div className="space-y-5">
-            {CERTIFICATIONS.map((group, groupIdx) => (
-              <CertificationGroup key={groupIdx} group={group} groupIdx={groupIdx} />
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   );
