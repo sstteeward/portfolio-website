@@ -5,7 +5,7 @@ const profileImg = new URL('../../assets/images/profile.jpg', import.meta.url).h
 
 export default function Hero() {
   return (
-    <section className="flex min-h-[80vh] flex-col justify-center py-20">
+    <section className="flex min-h-[80vh] flex-col justify-center py-24">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-12 md:gap-16 lg:gap-24 w-full">
         <div>
           <motion.div
@@ -20,7 +20,7 @@ export default function Hero() {
             <h1 className="mt-4 text-6xl font-bold tracking-tighter sm:text-8xl md:text-8xl lg:text-[10rem] leading-[0.9] shrink-0">
               steward
               <br />
-              humiwat<span className="text-[#F27D26]">.</span>
+              humiwat<span className="text-[#F27D26]"></span>
             </h1>
           </motion.div>
 
@@ -36,7 +36,7 @@ export default function Hero() {
 
             <a
               href="#projects"
-              className="group shrink-0 flex items-center gap-2 rounded-full border border-white/20 bg-white/5 py-4 px-8 text-sm font-medium transition-all hover:bg-white/10 hover:border-[#F27D26]"
+              className="group shrink-0 flex items-center gap-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md py-4 px-8 text-sm font-medium transition-all duration-300 hover:border-[#F27D26]/50 hover:bg-white/10 hover:shadow-[0_0_20px_-5px_rgba(242,125,38,0.2)]"
             >
               Explore Projects
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -44,12 +44,13 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        <motion.img
+          <motion.img
           initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
           animate={{ opacity: 1, scale: 1, rotate: 2 }}
           transition={{ duration: 0.8, delay: 0.3 }}
           src={profileImg}
           alt="Steward Humiwat"
+          fetchPriority="high"
           className="w-48 h-64 sm:w-64 sm:h-80 md:w-[20rem] md:h-[26rem] xl:w-[26rem] xl:h-[32rem] object-cover rounded-[2rem] xl:rounded-[3rem] border border-white/10 hover:border-[#F27D26] transition-colors shadow-2xl shrink-0"
         />
       </div>
