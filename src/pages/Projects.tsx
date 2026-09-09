@@ -31,9 +31,9 @@ export default function Projects() {
     <div className="mx-auto max-w-7xl px-0 sm:px-6 py-24 relative overflow-hidden">
       <div className="mb-16 px-6 sm:px-0 flex flex-col items-center justify-center text-center gap-6">
         <div>
-          <h2 className="text-sm font-bold tracking-widest text-[#F27D26] uppercase mb-3">PORTFOLIO</h2>
-          <h1 className="text-4xl font-bold tracking-tight mb-4 text-white">Selected Works</h1>
-          <p className="text-white/60 max-w-xl text-lg mx-auto">
+          <h2 className="text-xs font-semibold tracking-widest text-[#555555] uppercase mb-3">PORTFOLIO</h2>
+          <h1 className="text-4xl font-bold tracking-tight mb-4 text-[#111111]">Selected Works</h1>
+          <p className="text-[#555555] max-w-xl text-lg mx-auto">
             A showcase of things I've built. From web apps to interactive UI designs.
           </p>
         </div>
@@ -41,14 +41,14 @@ export default function Projects() {
         <div className="flex items-center gap-3">
           <button 
             onClick={scrollPrev}
-            className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/70 transition-all hover:bg-white/10 hover:border-[#F27D26] hover:text-white active:scale-95"
+            className="flex h-12 w-12 items-center justify-center rounded-full border border-[#E5E5E5] bg-[#FFFFFF] text-[#111111] transition-all hover:bg-[#F5F5F5] hover:border-[#111111]/30 active:scale-95 shadow-xs"
             aria-label="Previous slide"
           >
             <ChevronLeft className="h-6 w-6" />
           </button>
           <button 
             onClick={scrollNext}
-            className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/70 transition-all hover:bg-white/10 hover:border-[#F27D26] hover:text-white active:scale-95"
+            className="flex h-12 w-12 items-center justify-center rounded-full border border-[#E5E5E5] bg-[#FFFFFF] text-[#111111] transition-all hover:bg-[#F5F5F5] hover:border-[#111111]/30 active:scale-95 shadow-xs"
             aria-label="Next slide"
           >
             <ChevronRight className="h-6 w-6" />

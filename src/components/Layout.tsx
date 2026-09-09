@@ -28,12 +28,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <div className="flex min-h-screen flex-col font-sans">
+    <div className="flex min-h-screen flex-col font-sans bg-[#FAFAFA]">
       <ScrollProgress />
       
-      <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 hover:border-[#F27D26] transition-colors bg-[#050505]/80 backdrop-blur-md">
+      <header className="fixed top-0 left-0 right-0 z-50 border-b border-[#E5E5E5] bg-[#FFFFFF]/90 backdrop-blur-md transition-colors">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
-          <a href="#home" onClick={(e) => handleNavClick(e, 'home')} className="text-xl font-bold tracking-tighter shrink-0 transition-colors hover:text-[#F27D26]">
+          <a href="#home" onClick={(e) => handleNavClick(e, 'home')} className="text-xl font-bold tracking-tighter shrink-0 transition-colors text-[#111111] hover:text-[#000000]">
             sstteward
           </a>
 
@@ -41,7 +41,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
           {/* Mobile Nav Toggle */}
           <button
-            className="text-white/80 md:hidden p-2 rounded-md hover:bg-white/5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F27D26]"
+            className="text-[#111111] md:hidden p-2 rounded-md hover:bg-[#F5F5F5] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#111111]"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -54,40 +54,40 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       <main className="flex-1 pt-20">{children}</main>
 
-      <footer className="mt-24 border-t border-white/10 hover:border-[#F27D26] transition-colors bg-[#0A0A0A]">
+      <footer className="mt-24 border-t border-[#E5E5E5] bg-[#FFFFFF] text-[#111111]">
         <div className="mx-auto max-w-7xl px-6 py-12">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="flex flex-col items-center md:items-start gap-2">
-              <span className="text-2xl font-bold tracking-tighter" style={{fontFamily: "'Dancing Script', cursive"}}>
+            <div className="flex flex-col items-center md:items-start gap-1">
+              <span className="text-2xl font-bold tracking-tighter text-[#111111]" style={{fontFamily: "'Dancing Script', cursive"}}>
                 sstteward
               </span>
-              <p className="text-sm text-white/50">Building digital experiences.</p>
+              <p className="text-sm text-[#737373]">Building digital experiences.</p>
             </div>
             
-            <div className="flex items-center gap-6 text-sm font-medium">
-              {NAV_LINKS.slice(0, 4).map(link => (
-                <a key={link.path} href={`#${link.path}`} onClick={(e) => handleNavClick(e, link.path)} className="text-white/60 hover:text-[#F27D26] transition-colors">
+            <div className="flex flex-wrap items-center justify-center gap-6 text-sm font-medium">
+              {NAV_LINKS.map(link => (
+                <a key={link.path} href={`#${link.path}`} onClick={(e) => handleNavClick(e, link.path)} className="text-[#555555] hover:text-[#111111] transition-colors">
                   {link.name}
                 </a>
               ))}
             </div>
 
-            <div className="flex items-center gap-4">
-              <a href="https://github.com/sstteeward" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full border border-white/10 bg-white/5 text-white/70 hover:border-[#F27D26] hover:text-[#F27D26] transition-all" aria-label="GitHub">
+            <div className="flex items-center gap-3">
+              <a href="https://github.com/sstteeward" target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-full border border-[#E5E5E5] bg-[#F5F5F5] text-[#111111] hover:border-[#111111] hover:bg-[#111111] hover:text-white transition-all shadow-xs" aria-label="GitHub">
                 <Github className="h-4 w-4" />
               </a>
-              <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full border border-white/10 bg-white/5 text-white/70 hover:border-[#F27D26] hover:text-[#F27D26] transition-all" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/in/steward-humiwat-a7a324334/" target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-full border border-[#E5E5E5] bg-[#F5F5F5] text-[#111111] hover:border-[#111111] hover:bg-[#111111] hover:text-white transition-all shadow-xs" aria-label="LinkedIn">
                 <Linkedin className="h-4 w-4" />
               </a>
-              <a href="mailto:stewardhumiwat@gmail.com" className="p-2 rounded-full border border-white/10 bg-white/5 text-white/70 hover:border-[#F27D26] hover:text-[#F27D26] transition-all" aria-label="Email">
+              <a href="mailto:stewardhumiwat@gmail.com" className="p-2.5 rounded-full border border-[#E5E5E5] bg-[#F5F5F5] text-[#111111] hover:border-[#111111] hover:bg-[#111111] hover:text-white transition-all shadow-xs" aria-label="Email">
                 <Mail className="h-4 w-4" />
               </a>
             </div>
           </div>
           
-          <div className="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/40">
+          <div className="mt-12 pt-8 border-t border-[#E5E5E5] flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-[#737373]">
             <p>© {new Date().getFullYear()} Steward Humiwat. All rights reserved.</p>
-            <button onClick={scrollToTop} className="flex items-center gap-2 hover:text-[#F27D26] transition-colors">
+            <button onClick={scrollToTop} className="flex items-center gap-2 hover:text-[#111111] transition-colors font-medium cursor-pointer">
               Back to top <ArrowUp className="h-3 w-3" />
             </button>
           </div>

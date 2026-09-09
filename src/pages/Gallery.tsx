@@ -27,21 +27,21 @@ export default function Gallery() {
     <div className="mx-auto max-w-7xl px-0 sm:px-6 py-20 relative overflow-hidden min-h-[80vh] flex flex-col">
       <div className="mb-12 px-6 sm:px-0 flex flex-col items-center justify-center text-center gap-6">
         <div>
-          <h1 className="text-4xl font-bold tracking-tight mb-4">Gallery</h1>
-          <p className="mt-4 text-white/60 mx-auto max-w-xl">A visual journey through my workspace & inspiration.</p>
+          <h1 className="text-4xl font-bold tracking-tight mb-4 text-[#111111]">Gallery</h1>
+          <p className="mt-4 text-[#555555] mx-auto max-w-xl">A visual journey through my workspace &amp; inspiration.</p>
         </div>
         
         <div className="flex items-center gap-3">
           <button 
             onClick={scrollPrev}
-            className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/70 transition-all hover:bg-white/10 hover:border-[#F27D26] hover:text-white active:scale-95"
+            className="flex h-12 w-12 items-center justify-center rounded-full border border-[#E5E5E5] bg-[#FFFFFF] text-[#111111] transition-all hover:bg-[#F5F5F5] hover:border-[#111111]/30 active:scale-95 shadow-xs"
             aria-label="Previous slide"
           >
             <ChevronLeft className="h-6 w-6" />
           </button>
           <button 
             onClick={scrollNext}
-            className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/70 transition-all hover:bg-white/10 hover:border-[#F27D26] hover:text-white active:scale-95"
+            className="flex h-12 w-12 items-center justify-center rounded-full border border-[#E5E5E5] bg-[#FFFFFF] text-[#111111] transition-all hover:bg-[#F5F5F5] hover:border-[#111111]/30 active:scale-95 shadow-xs"
             aria-label="Next slide"
           >
             <ChevronRight className="h-6 w-6" />
@@ -77,7 +77,7 @@ export default function Gallery() {
             <SwiperSlide key={img.id} className="max-w-[320px] md:max-w-[600px] lg:max-w-[800px] transition-all duration-300">
               {({ isActive }) => (
                 <div
-                  className={`group flex flex-col overflow-hidden rounded-3xl border ${isActive ? 'border-white/20 shadow-2xl shadow-white/5 bg-[#111]' : 'border-white/10 bg-[#0A0A0A]'} transition-all duration-500 h-full relative aspect-video`}
+                  className={`group flex flex-col overflow-hidden rounded-3xl border ${isActive ? 'border-[#111111] shadow-xl bg-black' : 'border-[#E5E5E5] bg-black/5'} transition-all duration-500 h-full relative aspect-video`}
                 >
                   <img src={img.url} alt={img.title} className="absolute inset-0 w-full h-full object-cover" />
                   
@@ -98,7 +98,7 @@ export default function Gallery() {
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className="custom-pagination mt-8 flex justify-center gap-2 [&>.swiper-pagination-bullet]:w-2 [&>.swiper-pagination-bullet]:h-2 [&>.swiper-pagination-bullet]:bg-white/40 [&>.swiper-pagination-bullet]:rounded-full [&>.swiper-pagination-bullet-active]:w-8 [&>.swiper-pagination-bullet-active]:bg-[#F27D26] [&>.swiper-pagination-bullet]:transition-all [&>.swiper-pagination-bullet]:cursor-pointer"></div>
+        <div className="custom-pagination mt-8 flex justify-center gap-2 [&>.swiper-pagination-bullet]:w-2 [&>.swiper-pagination-bullet]:h-2 [&>.swiper-pagination-bullet]:bg-[#CCCCCC] [&>.swiper-pagination-bullet]:rounded-full [&>.swiper-pagination-bullet-active]:w-8 [&>.swiper-pagination-bullet-active]:bg-[#111111] [&>.swiper-pagination-bullet]:transition-all [&>.swiper-pagination-bullet]:cursor-pointer"></div>
       </div>
 
       <Feedback />

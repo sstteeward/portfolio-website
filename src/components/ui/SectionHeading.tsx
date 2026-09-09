@@ -20,19 +20,19 @@ export default function SectionHeading({ badge, title, subtitle, align = 'center
       transition={{ duration: 0.6 }}
       className={`mb-16 flex w-full flex-col gap-4 ${alignmentClass}`}
     >
-      <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 backdrop-blur-md">
-        <div className="h-2 w-2 rounded-full bg-[#F27D26] shadow-[0_0_10px_rgba(242,125,38,0.5)]" />
-        <span className="text-xs font-bold tracking-widest text-white/80 uppercase">
+      <div className="inline-flex items-center gap-2 rounded-full border border-[#E5E5E5] bg-[#FFFFFF] px-4 py-1.5">
+        <div className="h-1.5 w-1.5 rounded-full bg-[#111111]" />
+        <span className="text-xs font-semibold tracking-widest text-[#555555] uppercase">
           {badge}
         </span>
       </div>
       
-      <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white lg:text-6xl">
+      <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-[#111111] lg:text-6xl">
         {title}
       </h2>
       
       {subtitle && (
-        <p className="max-w-2xl text-lg text-white/60">
+        <p className="max-w-2xl text-lg text-[#555555]">
           {subtitle}
         </p>
       )}

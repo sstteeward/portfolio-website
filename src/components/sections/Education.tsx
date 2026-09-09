@@ -9,7 +9,7 @@ export default function Education() {
   const prefersReduced = useReducedMotion();
 
   return (
-    <section className="py-24 border-t border-white/10 w-full">
+    <section className="py-24 border-t border-[#E5E5E5] w-full">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeading 
           badge="EDUCATION &amp; CREDENTIALS" 
@@ -22,15 +22,15 @@ export default function Education() {
           {/* ── Left Column: Academic History ── */}
           <div className="flex flex-col">
             <div className="flex items-center gap-3 mb-8">
-              <div className="h-3 w-3 rounded-full bg-[#F27D26]" />
-              <GraduationCap className="h-5 w-5 text-[#F27D26]" />
-              <h3 className="text-sm font-bold tracking-widest uppercase text-white">Academic History</h3>
+              <div className="h-2 w-2 rounded-full bg-[#111111]" />
+              <GraduationCap className="h-5 w-5 text-[#111111]" />
+              <h3 className="text-sm font-bold tracking-widest uppercase text-[#111111]">Academic History</h3>
             </div>
 
             {/* Timeline */}
             <div className="relative pl-8">
               {/* Vertical line */}
-              <div className="absolute left-[11px] top-0 bottom-0 w-px bg-gradient-to-b from-[#F27D26]/60 via-white/10 to-transparent" />
+              <div className="absolute left-[11px] top-0 bottom-0 w-px bg-[#E5E5E5]" />
 
               <div className="flex flex-col gap-5">
                 {EDUCATION.map((item, index) => {
@@ -47,38 +47,38 @@ export default function Education() {
                       {/* Timeline dot */}
                       <div className={`absolute -left-8 top-5 h-6 w-6 rounded-full flex items-center justify-center z-10 ${
                         isCurrent 
-                          ? 'bg-[#F27D26] shadow-[0_0_12px_rgba(242,125,38,0.5)]' 
-                          : 'bg-[#1A1A1A] border border-white/15'
+                          ? 'bg-[#111111] text-white shadow-xs' 
+                          : 'bg-[#F5F5F5] border border-[#E5E5E5] text-[#555555]'
                       }`}>
-                        <item.icon className={`h-3 w-3 ${isCurrent ? 'text-white' : 'text-white/50'}`} />
+                        <item.icon className={`h-3 w-3 ${isCurrent ? 'text-white' : 'text-[#555555]'}`} />
                       </div>
 
                       {/* Card */}
-                      <div className="rounded-2xl border border-white/5 bg-[#0A0A0A] p-5 hover:border-[#F27D26]/30 transition-colors duration-300">
+                      <div className="rounded-2xl border border-[#E5E5E5] bg-[#FFFFFF] p-5 hover:border-[#111111]/30 transition-colors duration-300">
                         <div className="flex items-start justify-between gap-3">
                           <div className="flex-1">
-                            <h4 className="text-base font-bold text-white mb-1">{item.school}</h4>
-                            <p className={`text-sm font-medium ${isCurrent ? 'text-[#F27D26]' : 'text-[#F27D26]/70'}`}>
+                            <h4 className="text-base font-bold text-[#111111] mb-1">{item.school}</h4>
+                            <p className="text-sm font-medium text-[#555555]">
                               {item.program}
                             </p>
                             {item.years && (
-                              <div className="flex items-center gap-2 mt-2 text-xs text-white/40">
+                              <div className="flex items-center gap-2 mt-2 text-xs text-[#737373]">
                                 <Calendar className="h-3.5 w-3.5" />
                                 <span>{item.years}</span>
                                 {isCurrent && (
-                                  <span className="text-white/30">· {item.statusLabel}</span>
+                                  <span className="text-[#999999]">· {item.statusLabel}</span>
                                 )}
                               </div>
                             )}
                           </div>
 
                           {/* Status badge */}
-                          <div className={`shrink-0 inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-wider ${
+                          <div className={`shrink-0 inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[10px] font-semibold uppercase tracking-wider ${
                             isCurrent
-                              ? 'bg-[#F27D26]/10 text-[#F27D26] border border-[#F27D26]/30'
-                              : 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
+                              ? 'bg-[#111111] text-white'
+                              : 'bg-[#F5F5F5] text-[#555555] border border-[#E5E5E5]'
                           }`}>
-                            <div className={`h-1.5 w-1.5 rounded-full ${isCurrent ? 'bg-[#F27D26] animate-pulse' : 'bg-emerald-400'}`} />
+                            <div className={`h-1.5 w-1.5 rounded-full ${isCurrent ? 'bg-white' : 'bg-[#737373]'}`} />
                             {isCurrent ? 'Currently Studying' : 'Graduated'}
                           </div>
                         </div>
@@ -93,9 +93,9 @@ export default function Education() {
           {/* ── Right Column: Certifications & Credentials ── */}
           <div className="flex flex-col">
             <div className="flex items-center gap-3 mb-8">
-              <div className="h-3 w-3 rounded-full bg-[#F27D26]" />
-              <Award className="h-5 w-5 text-[#F27D26]" />
-              <h3 className="text-sm font-bold tracking-widest uppercase text-white">Certifications &amp; Credentials</h3>
+              <div className="h-2 w-2 rounded-full bg-[#111111]" />
+              <Award className="h-5 w-5 text-[#111111]" />
+              <h3 className="text-sm font-bold tracking-widest uppercase text-[#111111]">Certifications &amp; Credentials</h3>
             </div>
 
             <div className="flex flex-col gap-4">
@@ -106,14 +106,14 @@ export default function Education() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.4, delay: prefersReduced ? 0 : index * 0.1 }}
-                  className="rounded-2xl border border-white/5 bg-[#0A0A0A] p-5 hover:border-[#F27D26]/20 transition-colors duration-300"
+                  className="rounded-2xl border border-[#E5E5E5] bg-[#FFFFFF] p-5 hover:border-[#111111]/30 transition-colors duration-300"
                 >
                   {/* Category header */}
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#F27D26]/10">
-                      <group.icon className="h-4 w-4 text-[#F27D26]" />
+                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#F5F5F5] border border-[#E5E5E5]">
+                      <group.icon className="h-4 w-4 text-[#111111]" />
                     </div>
-                    <h4 className="text-xs font-bold tracking-widest uppercase text-white/90">{group.category}</h4>
+                    <h4 className="text-xs font-bold tracking-widest uppercase text-[#111111]">{group.category}</h4>
                   </div>
 
                   {/* Items */}
@@ -121,10 +121,10 @@ export default function Education() {
                     {group.items.map((item, i) => (
                       <li key={i} className="flex items-start justify-between gap-3">
                         <div className="flex items-start gap-2.5">
-                          <CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5 shrink-0" />
-                          <span className="text-sm text-white/70">{item.title}</span>
+                          <CheckCircle2 className="h-4 w-4 text-[#111111] mt-0.5 shrink-0" />
+                          <span className="text-sm text-[#555555]">{item.title}</span>
                         </div>
-                        <span className="shrink-0 inline-flex rounded-full border border-white/10 bg-white/5 px-2.5 py-0.5 text-[10px] font-medium text-white/50 whitespace-nowrap">
+                        <span className="shrink-0 inline-flex rounded-full border border-[#E5E5E5] bg-[#F7F7F7] px-2.5 py-0.5 text-[10px] font-medium text-[#737373] whitespace-nowrap">
                           {item.issuer}
                         </span>
                       </li>

@@ -113,26 +113,26 @@ export default function ViewerCounter() {
   }, []);
 
   return (
-    <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full border border-white/10 bg-white/[0.04] backdrop-blur-xl hover:border-[#F27D26]/50 hover:shadow-[0_0_12px_rgba(242,125,38,0.15)] transition-all duration-300 text-[11px] font-mono select-none">
+    <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full border border-[#E5E5E5] bg-[#FFFFFF] hover:border-[#111111]/30 transition-all duration-300 text-[11px] font-mono select-none text-[#111111]">
       {/* Watching Now / Live */}
       <div className="flex items-center gap-1.5" title="Real active viewers right now">
         <span className="relative flex h-1.5 w-1.5">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-          <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500 shadow-[0_0_6px_rgba(52,211,153,0.6)]" />
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75" />
+          <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-600" />
         </span>
-        <span className="font-semibold text-emerald-400">{activeViewers}</span>
-        <span className="hidden sm:inline text-white/50 text-[9px] tracking-wider uppercase">watching now</span>
+        <span className="font-semibold text-emerald-700">{activeViewers}</span>
+        <span className="hidden sm:inline text-[#737373] text-[9px] tracking-wider uppercase">watching now</span>
       </div>
 
-      <span className="text-white/15">|</span>
+      <span className="text-[#D4D4D4]">|</span>
 
       {/* Total Views */}
       <div className="flex items-center gap-1.5" title="Real total views saved in database">
-        <Eye className="h-3 w-3 text-[#F27D26]" />
-        <span className="font-semibold text-white/90">
+        <Eye className="h-3 w-3 text-[#111111]" />
+        <span className="font-semibold text-[#111111]">
           {loading ? '...' : totalViews.toLocaleString()}
         </span>
-        <span className="hidden sm:inline text-white/50 text-[9px] tracking-wider uppercase">views</span>
+        <span className="hidden sm:inline text-[#737373] text-[9px] tracking-wider uppercase">views</span>
       </div>
     </div>
   );

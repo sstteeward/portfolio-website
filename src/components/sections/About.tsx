@@ -8,7 +8,7 @@ export default function About() {
 
 
   return (
-    <section className="py-24 border-t border-white/10 w-full overflow-hidden relative">
+    <section className="py-24 border-t border-[#E5E5E5] w-full overflow-hidden relative">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeading 
           badge="ABOUT ME" 
@@ -26,13 +26,12 @@ export default function About() {
             transition={{ duration: 0.6 }}
             className="relative flex justify-center lg:justify-start"
           >
-            <div className="relative w-full max-w-[420px] aspect-[4/5] rounded-[48px] overflow-hidden border border-white/10 group shadow-2xl">
-              <div className="absolute inset-0 bg-[#F27D26]/20 group-hover:bg-transparent transition-colors duration-500 z-10 mix-blend-overlay" />
+            <div className="relative w-full max-w-[420px] aspect-[4/5] rounded-[48px] overflow-hidden border border-[#E5E5E5] bg-[#FFFFFF] group shadow-sm">
               <img 
                 src={profileImg} 
                 alt="Steward Humiwat - About" 
                 loading="lazy"
-                className="w-full h-full object-cover grayscale-[20%] transition-transform duration-700 group-hover:scale-105 group-hover:grayscale-0"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
             </div>
           </motion.div>
@@ -45,12 +44,12 @@ export default function About() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex flex-col items-start text-left gap-8"
           >
-            <div className="space-y-6 text-lg text-white/70 leading-relaxed">
+            <div className="space-y-6 text-lg text-[#555555] leading-relaxed">
               <p>
-                Hello! I'm <span className="text-white font-bold">Steward Humiwat</span>, an aspiring software engineer with a deep passion for building scalable, accessible, and visually stunning web applications. 
+                Hello! I'm <span className="text-[#111111] font-bold">Steward Humiwat</span>, an aspiring software engineer with a deep passion for building scalable, accessible, and visually stunning web applications. 
               </p>
               <p>
-                Currently, I am pursuing my <span className="text-white font-medium">Bachelor of Science in Information Technology</span> at Asian College in Dumaguete. My academic journey has provided me with a strong foundation in computer science principles, but my true growth comes from getting my hands dirty with real-world code.
+                Currently, I am pursuing my <span className="text-[#111111] font-medium">Bachelor of Science in Information Technology</span> at Asian College in Dumaguete. My academic journey has provided me with a strong foundation in computer science principles, but my true growth comes from getting my hands dirty with real-world code.
               </p>
               <p>
                 I thrive in the intersection of design and engineering. Whether it's architecting a robust backend database with MySQL and Supabase, or meticulously crafting a pixel-perfect React frontend with Tailwind CSS and Framer Motion, I enjoy every layer of the stack.

@@ -19,13 +19,13 @@ export default function DesktopNav({ activeSection, onNavClick }: DesktopNavProp
             key={link.path}
             href={`#${link.path}`}
             onClick={(e) => onNavClick(e, link.path)}
-            className={`relative text-sm font-medium transition-colors hover:text-white ${isActive ? 'text-white' : 'text-white/60'}`}
+            className={`relative text-sm font-medium transition-colors hover:text-[#111111] ${isActive ? 'text-[#111111] font-semibold' : 'text-[#666666]'}`}
           >
             {link.name}
             {isActive && (
               <motion.div
                 layoutId="nav-pill"
-                className="absolute -bottom-2 left-0 right-0 h-[2px] bg-[#F27D26]"
+                className="absolute -bottom-2 left-0 right-0 h-[2px] bg-[#111111]"
                 transition={{ type: 'spring', stiffness: 300, damping: 30 }}
               />
             )}
@@ -33,11 +33,11 @@ export default function DesktopNav({ activeSection, onNavClick }: DesktopNavProp
         );
       })}
       
-      <div className="flex items-center gap-6 pl-6 border-l border-white/10">
+      <div className="flex items-center gap-6 pl-6 border-l border-[#E5E5E5]">
         <a 
           href="#" 
           download="Steward-Humiwat-Resume.pdf"
-          className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-xs font-semibold hover:border-[#F27D26] hover:bg-[#F27D26]/10 hover:text-[#F27D26] transition-all"
+          className="flex items-center gap-2 px-4 py-2 rounded-full border border-[#E5E5E5] bg-[#FFFFFF] text-xs font-semibold text-[#111111] hover:bg-[#111111] hover:text-white hover:border-[#111111] transition-all"
         >
           <Download className="h-3 w-3" />
           Resume

@@ -22,7 +22,7 @@ export const PROJECTS: Project[] = [
     tech: ['React', 'JavaScript', 'CSS', 'Supabase'],
     link: '#',
     github: '#',
-    color: 'from-[#F27D26]/20 to-transparent',
+    color: 'from-neutral-500/10 to-transparent',
     image: silMonitoringImg,
   },
   {
@@ -31,7 +31,7 @@ export const PROJECTS: Project[] = [
     tech: ['PHP', 'CSS', 'HTML'],
     link: '#',
     github: '#',
-    color: 'from-[#F27D26]/20 to-transparent',
+    color: 'from-neutral-500/10 to-transparent',
     image: asianCollegeEisImg,
   },
   {
@@ -40,7 +40,7 @@ export const PROJECTS: Project[] = [
     tech: ['JavaScript', 'HTML', 'CSS'],
     link: '#',
     github: '#',
-    color: 'from-[#F27D26]/20 to-transparent',
+    color: 'from-neutral-500/10 to-transparent',
     image: asianCollegeSpeechImg,
   },
   {
@@ -49,7 +49,7 @@ export const PROJECTS: Project[] = [
     tech: ['React'],
     link: '#',
     github: '#',
-    color: 'from-[#F27D26]/20 to-transparent',
+    color: 'from-neutral-500/10 to-transparent',
     image: recreatingWebsiteImg,
   },
   {
@@ -58,7 +58,7 @@ export const PROJECTS: Project[] = [
     tech: ['Figma', 'Flowchart', 'Wireframe'],
     link: '#',
     github: '#',
-    color: 'from-[#F27D26]/20 to-transparent',
+    color: 'from-neutral-500/10 to-transparent',
     image: orderManagementImg,
   },
   {
@@ -67,7 +67,7 @@ export const PROJECTS: Project[] = [
     tech: ['React', 'HTML', 'CSS'],
     link: '#',
     github: '#',
-    color: 'from-[#F27D26]/20 to-transparent',
+    color: 'from-neutral-500/10 to-transparent',
     image: portfolioWebsiteImg,
   },
 ];

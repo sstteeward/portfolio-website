@@ -55,7 +55,7 @@ export default function Achievements() {
   const prefersReduced = useReducedMotion();
 
   return (
-    <section className="py-14 border-t border-white/10 w-full overflow-hidden">
+    <section className="py-14 border-t border-[#E5E5E5] w-full overflow-hidden">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeading 
           badge="MILESTONES" 
@@ -73,22 +73,22 @@ export default function Achievements() {
               transition={{ duration: 0.5, delay: prefersReduced ? 0 : idx * 0.1 }}
             >
               <GlassCard className="h-full flex flex-col items-center text-center !p-4">
-                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#F27D26]/10 text-[#F27D26] mb-3">
+                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#F5F5F5] border border-[#E5E5E5] text-[#111111] mb-3">
                   <item.icon className="h-4 w-4" />
                 </div>
                 
                 <div className="flex items-baseline justify-center gap-0.5 mb-1">
-                  <h4 className="text-2xl font-bold tracking-tighter text-white">
+                  <h4 className="text-2xl font-bold tracking-tighter text-[#111111]">
                     <AnimatedCounter value={item.value} />
                   </h4>
                   {item.suffix && (
-                    <span className="text-lg font-bold text-[#F27D26]">
+                    <span className="text-lg font-bold text-[#111111]">
                       {item.suffix}
                     </span>
                   )}
                 </div>
                 
-                <p className="text-[10px] font-medium uppercase tracking-wider text-white/50">
+                <p className="text-[10px] font-semibold uppercase tracking-wider text-[#737373]">
                   {item.label}
                 </p>
               </GlassCard>
